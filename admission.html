@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - IoT Engineering</title>
+    <link rel="stylesheet" href="Admission.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+            <div class="header-text">Department of IoT & Information Engineering</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academic.html">Academics</a></li>
+                <li><a href="admission.html" class="active">Admission</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="performance.html">Performance</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-admission">
+        <div class="hero-content">
+            <h3>What is IoT and Information Engineering?</h3>
+            <div class="red-line"></div>
+            <p>The program is a strategic fit for the country's targeted "S-Curve" industries—specifically Smart Electronics and the Digital Industry (New S-Curve). It also supports the growth of the Eastern Economic Corridor (EEC), where there is a strong government push and a high demand for specialized graduates in this field.</p>
+        </div>
+    </section>
+
+    <section class="admission-rounds">
+        <div class="container">
+            <div class="round-list">
+                <div class="button-group">
+                    <button class="round-btn active" onclick="switchRound('portfolio')">รอบที่ 1 PORTFOLIO</button>
+                    <select class="round-select" onchange="switchRound(this.value)">
+                        <option value="portfolio">PORTFOLIO</option>
+                        <option value="quota">QUOTA</option>
+                        <option value="admission">ADMISSION</option>
+                    </select>
+                </div>
+                <button class="round-btn" onclick="switchRound('quota')">รอบที่ 2 QUOTA</button>
+                <button class="round-btn" onclick="switchRound('admission')">รอบที่ 3 ADMISSION</button>
+            </div>
+            
+            <div class="round-image-box">
+                <img id="display-img" src="assets/classroom.jpg" alt="Admission Detail">
+            </div>
+        </div>
+    </section>
+
+    <section class="admission-stats">
+        <div class="stat-item">
+            <img src="assets/icon-portfolio.png" alt="icon">
+            <h4>PORTFOLIO</h4>
+            <p>รับสมัคร 75 คน</p>
+        </div>
+        <div class="stat-item">
+            <img src="assets/icon-quota.png" alt="icon">
+            <h4>QUOTA</h4>
+            <p>รับสมัคร 15 คน</p>
+        </div>
+        <div class="stat-item">
+            <img src="assets/icon-admission.png" alt="icon">
+            <h4>ADMISSION</h4>
+            <p>รับสมัคร 5 คน</p>
+        </div>
+    </section>
+
+    <script>
+        function switchRound(round) {
+            const imgElement = document.getElementById('display-img');
+            const images = {
+                'portfolio': 'assets/classroom.jpg', // เปลี่ยนเป็นชื่อไฟล์จริง
+                'quota': 'assets/image-quota.jpg',
+                'admission': 'assets/image-admission.jpg'
+            };
+            
+            if(images[round]) {
+                imgElement.src = images[round];
+            }
+            
+            // เปลี่ยนสถานะปุ่ม Active
+            const buttons = document.querySelectorAll('.round-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(event.target.tagName === 'BUTTON') {
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
