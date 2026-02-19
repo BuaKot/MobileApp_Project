@@ -3,126 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission</title>
-
+    <title>Admission - IoT & Information Engineering</title>
     <link rel="stylesheet" href="css/admission.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header class="main-header">
-
     <div class="top-bar">
         <div class="top-right">
             <span>📍 E-12 Building</span>
             <span>✉ iote@kmitl.ac.th</span>
         </div>
     </div>
-
     <div class="logo-bar">
-        <img src="assets/Logo.png" class="logo">
-        <h1>Department of IoT & Information Engineering</h1>
+        <img src="assets/Logo.png" class="logo" alt="Logo">
+        <div class="logo-text">
+            <h1>Department of IoT & Information Engineering</h1>
+        </div>
     </div>
-
     <nav class="menu-bar">
-        <a href="#">Home</a>
-        <a href="#">Academics</a>
-        <a href="#" class="active"></a>Admission</a>
-        <a href="#">Contact ▾</a>
-        <a href="#">Faculty ▾</a>
-        <a href="#">Performance</a>
+        <div class="menu-container">
+            <a href="index.html">Home</a>
+            <a href="academic.html">Academics</a>
+            <a href="admission.html" class="active">Admission</a>
+            <a href="contact.html">Contact ▾</a>
+            <a href="faculty.html">Faculty ▾</a>
+            <a href="performance.html">Performance</a>
+        </div>
     </nav>
-
 </header>
 
-
-<!-- HERO -->
 <section class="hero">
     <div class="hero-overlay">
         <div class="hero-box">
             <h3>What is IoT and Information Engineering?</h3>
             <div class="line"></div>
-            <p>
-                The program is a strategic fit for the country's targeted 
-                "S-Curve" industries — specifically Smart Electronics and the 
-                Digital Industry (New S-Curve).
-            </p>
+            <p>The program is a strategic fit for the country's targeted "S-Curve" industries — specifically Smart Electronics and the Digital Industry (New S-Curve).</p>
         </div>
     </div>
 </section>
 
-<!-- ROUNDS -->
 <section class="rounds">
     <div class="round-container">
-
         <div class="round-buttons">
-            <button class="active">รอบที่ 1 PORTFOLIO</button>
-            <button>รอบที่ 2 QUOTA</button>
-            <button>รอบที่ 3 ADMISSION</button>
+            
+            <div class="group">
+                <button class="main-round-btn active" onclick="toggleSub('portfolio')">รอบที่ 1 PORTFOLIO</button>
+                <div id="sub-portfolio" class="sub-projects">
+                    <button class="sub-btn">▼ PORTFOLIO</button>
+                    <button class="sub-btn">▲ โครงการ Young Engineering Talent</button>
+                    <button class="sub-btn">▲ โครงการรางวัลและประกาศนียบัตร...</button>
+                    <button class="sub-btn">▲ โครงการเรียนดีช้างเผือก...</button>
+                    <button class="sub-btn">▲ โครงการโรงเรียนวิทยาศาสตร์</button>
+                    <button class="sub-btn">▲ โครงการ Engineering Pathway</button>
+                </div>
+            </div>
+
+            <div class="group">
+                <button class="main-round-btn" onclick="toggleSub('quota')">รอบที่ 2 QUOTA</button>
+                <div id="sub-quota" class="sub-projects">
+                    <button class="sub-btn">▼ QUOTA</button>
+                    
+                    <div class="sub-group">
+                        <button class="sub-btn" onclick="toggleQuotaDetail(event, 'study-good')">▲ โควตาเรียนดี</button>
+                        <div id="detail-study-good" class="quota-detail-content">
+                            <div class="detail-card">
+                                <h5>คุณสมบัติ</h5>
+                                <ul>
+                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรแกนกลาง</li>
+                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรนานาชาติ</li>
+                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรอาชีวะ</li>
+                                    <li>มีผลการเรียนเฉลี่ยสะสม 5 เทอม ไม่น้อยกว่า 3.00</li>
+                                </ul>
+                                <p><strong>จำนวนเปิดรับ:</strong> 15 คน (รับร่วมกัน)</p>
+                                <p><strong>รายละเอียด:</strong> <a href="https://new.reg.kmitl.ac.th/admission/#/" target="_blank">คลิกดูเพิ่มเติม</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="sub-btn">▲ โควตากิจกรรม K-Engineering</button>
+                    <button class="sub-btn">▲ โควตา KMITL One</button>
+                </div>
+            </div>
+
+            <div class="group">
+                <button class="main-round-btn" onclick="toggleSub('admission')">รอบที่ 3 ADMISSION</button>
+            </div>
         </div>
 
         <div class="round-image">
-            <img src="assets/Admission1.png">
+            <img id="display-img" src="assets/Admission1.png" alt="Admission Detail">
         </div>
-
     </div>
 </section>
 
-<!-- BANNER -->
-<section class="banner">
-    <img src="assets/Admission2.png">
-</section>
-
-<!-- STATS -->
 <section class="stats">
-
-    <a href="https://www.reg.kmitl.ac.th/ebook/ManualAdmissionSystemRev1.pdf" class="stat-link">
-        <div class="stat">
-            <img src="assets/icon1.png">
-            <h4>PORTFOLIO</h4>
-            <p>รับสมัคร 75 คน</p>
-        </div>
-    </a>
-
-    <a href="https://www.reg.kmitl.ac.th/ebook/ManualAdmissionSystemRev1.pdf" class="stat-link">
-        <div class="stat">
-            <img src="assets/icon2.png">
-            <h4>QUOTA</h4>
-            <p>รับสมัคร 15 คน</p>
-        </div>
-    </a>
-
-    <a href="https://www.reg.kmitl.ac.th/ebook/ManualAdmissionSystemRev1.pdf" class="stat-link">
-        <div class="stat">
-            <img src="assets/Icon3.png">
-            <h4>ADMISSION</h4>
-            <p>รับสมัคร 5 คน</p>
-        </div>
-    </a>
-
+    <div class="stat-container">
+        <div class="stat"><img src="assets/icon1.png"><h4>PORTFOLIO</h4><p>รับสมัคร 75 คน</p></div>
+        <div class="stat"><img src="assets/icon2.png"><h4>QUOTA</h4><p>รับสมัคร 15 คน</p></div>
+        <div class="stat"><img src="assets/Icon3.png"><h4>ADMISSION</h4><p>รับสมัคร 5 คน</p></div>
+    </div>
 </section>
 
-
-<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-links">
-
-        <a href="https://www.reg.kmitl.ac.th/ebook/ManualAdmissionSystemRev1.pdf" target="_blank">
-            <img src="assets/icon-book.png">
-            คู่มือการใช้งานระบบสมัคร
-        </a>
-
-        <a href="https://ifolio.kmitl.ac.th/manuals/MANUAL_STUDENT_TH.pdf" target="_blank">
-            <img src="assets/icon-book.png">
-            คู่มือการใช้งานระบบแฟ้มสะสมผลงานออนไลน์ (iFOLIO)
-        </a>
-
+        <a href="#"><img src="assets/icon-book.png"> คู่มือระบบสมัคร</a>
+        <a href="#"><img src="assets/icon-book.png"> คู่มือ iFOLIO</a>
     </div>
-
-    <img src="assets/Admission3.png">
+    <div class="footer-img">
+        <img src="assets/Admission3.png" style="width: 100%;">
+    </div>
 </footer>
 
+<script>
+    function toggleSub(round) {
+        // 1. ปิดเมนูย่อยและถอนสถานะ Active ทั้งหมด
+        document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
+        document.querySelectorAll('.main-round-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.quota-detail-content').forEach(el => el.classList.remove('show'));
+
+        const img = document.getElementById('display-img');
+        
+        // 2. สลับการแสดงผลตามรอบ
+        if(round === 'portfolio') {
+            document.getElementById('sub-portfolio').classList.add('show');
+            img.src = 'assets/Admission1.png';
+        } else if(round === 'quota') {
+            document.getElementById('sub-quota').classList.add('show');
+            img.src = 'assets/Admission2.png';
+        } else if(round === 'admission') {
+            img.src = 'assets/Admission4.png'; // ตรวจสอบชื่อไฟล์รูปเกณฑ์คะแนน Admission
+        }
+        
+        // 3. ใส่ Active ให้ปุ่มหลัก
+        event.currentTarget.classList.add('active');
+    }
+
+    function toggleQuotaDetail(e, detailId) {
+        e.stopPropagation(); // กันไม่ให้ไปเรียก toggleSub ซ้ำ
+        const detail = document.getElementById('detail-' + detailId);
+        detail.classList.toggle('show');
+    }
+</script>
 
 </body>
 </html>
