@@ -1,98 +1,147 @@
 :root {
-    --main-red: #800000;
-    --dark-red: #4a0000;
+    --main-red: #7b0000;
+    --dark-red: #5a0000;
     --gold: #FFD700;
 }
 
+/* RESET */
 body {
-    font-family: 'Prompt', sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+    font-family: 'Prompt', sans-serif;
+    background: #d3d3d3;
 }
 
-/* Header */
+/* HEADER */
 .main-header {
-    background-color: var(--main-red);
+    width: 100%;
+    background: var(--main-red);
     color: white;
+}
+
+/* TOP BAR */
+.top-bar {
+    font-size: 13px;
+    padding: 8px 6%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-right {
+    display: flex;
+    gap: 20px;
+    opacity: 0.9;
+}
+
+/* NAVBAR */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    background-color: var(--dark-red);
+    padding: 10px 40px;
 }
 
-.logo-section {
+.navbar-left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
-.logo { width: 50px; }
+.logo {
+    height: 40px;
+}
 
-.main-header nav ul {
+.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.navbar-menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-.main-header nav a {
-    color: white;
+.navbar-menu a {
     text-decoration: none;
+    color: white;
     font-size: 14px;
 }
 
-.main-header nav a.active {
-    border-bottom: 2px solid white;
+.navbar-menu a:hover {
+    color: var(--gold);
 }
 
-/* Hero Section */
+.navbar-menu .active {
+    border-bottom: 2px solid white;
+    padding-bottom: 3px;
+}
+
+/* HERO */
 .hero-admission {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/students-bg.jpg');
+    position: relative;
+    background-image: url("../assets/What.png");
     background-size: cover;
     background-position: center;
-    height: 450px;
+    height: 420px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.hero-content {
-    background-color: rgba(128, 0, 0, 0.85);
-    color: white;
-    padding: 40px;
-    max-width: 700px;
-    text-align: center;
-    border: 2px solid var(--main-red);
+.hero-admission::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
 }
 
-/* Admission Rounds Section */
+.hero-content {
+    position: relative;
+    background-color: rgba(128, 0, 0, 0.85);
+    color: white;
+    padding: 30px 40px;
+    max-width: 750px;
+    text-align: center;
+}
+
+.red-line {
+    width: 60px;
+    height: 3px;
+    background: white;
+    margin: 12px auto;
+}
+
+/* ROUNDS */
+.admission-rounds {
+    padding: 45px 10% 25px;
+}
+
 .container {
     display: flex;
+    gap: 28px;
     justify-content: center;
-    padding: 50px 10%;
-    gap: 40px;
+    align-items: center;
 }
 
 .round-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.button-group {
-    display: flex;
-    gap: 5px;
+    gap: 9px;
 }
 
 .round-btn {
     background-color: #4a2c2a;
     color: white;
     border: none;
-    padding: 12px 20px;
-    width: 220px;
+    width: 235px;
+    height: 34px;
     text-align: left;
+    padding-left: 10px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .round-btn.active {
@@ -100,38 +149,40 @@ body {
     border-left: 5px solid var(--gold);
 }
 
-.round-select {
-    background-color: var(--main-red);
-    color: white;
-    border: none;
-    padding: 0 10px;
-}
-
 .round-image-box img {
-    width: 500px;
-    height: 300px;
+    width: 360px;
+    height: 150px;
     object-fit: cover;
-    box-shadow: 10px 10px 0px #ddd;
 }
 
-/* Stats Section */
+/* STATS */
 .admission-stats {
     display: flex;
-    justify-content: space-around;
-    padding: 60px 10%;
-    background-color: white;
-}
-
-.stat-item {
-    text-align: center;
+    justify-content: center;
+    gap: 90px;
+    padding: 35px 0;
 }
 
 .stat-item img {
-    width: 60px;
+    width: 58px;
+}
+
+/* FOOTER */
+.admission-footer {
+    background: var(--dark-red);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
     margin-bottom: 10px;
 }
 
-.stat-item h4 {
-    margin: 5px 0;
-    color: #333;
+.footer-links a {
+    color: white;
+    text-decoration: none;
 }

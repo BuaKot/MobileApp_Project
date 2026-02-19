@@ -4,94 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission - IoT Engineering</title>
-    <link rel="stylesheet" href="Admission.css">
+
+    <link rel="stylesheet" href="css/admission.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+<div class="page-container">
+
     <header class="main-header">
-        <div class="logo-section">
-            <img src="assets/logo.png" alt="Logo" class="logo">
-            <div class="header-text">Department of IoT & Information Engineering</div>
+
+        <div class="top-bar">
+            <div class="top-right">
+                <span>📍 E-12 Building</span>
+                <span>✉ iote@kmitl.ac.th</span>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="academic.html">Academics</a></li>
-                <li><a href="admission.html" class="active">Admission</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="performance.html">Performance</a></li>
+
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="assets/logo.png" class="logo">
+                <span class="title">Department of IoT & Information Engineering</span>
+            </div>
+
+            <ul class="navbar-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#" class="active">Admission</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Performance</a></li>
             </ul>
         </nav>
+
     </header>
 
+    <!-- HERO -->
     <section class="hero-admission">
         <div class="hero-content">
             <h3>What is IoT and Information Engineering?</h3>
             <div class="red-line"></div>
-            <p>The program is a strategic fit for the country's targeted "S-Curve" industries—specifically Smart Electronics and the Digital Industry (New S-Curve). It also supports the growth of the Eastern Economic Corridor (EEC), where there is a strong government push and a high demand for specialized graduates in this field.</p>
+            <p>
+                The program is a strategic fit for the country's targeted
+                "S-Curve" industries — specifically Smart Electronics and the
+                Digital Industry (New S-Curve).
+            </p>
         </div>
     </section>
 
+    <!-- ROUNDS -->
     <section class="admission-rounds">
         <div class="container">
+
             <div class="round-list">
-                <div class="button-group">
-                    <button class="round-btn active" onclick="switchRound('portfolio')">รอบที่ 1 PORTFOLIO</button>
-                    <select class="round-select" onchange="switchRound(this.value)">
-                        <option value="portfolio">PORTFOLIO</option>
-                        <option value="quota">QUOTA</option>
-                        <option value="admission">ADMISSION</option>
-                    </select>
-                </div>
-                <button class="round-btn" onclick="switchRound('quota')">รอบที่ 2 QUOTA</button>
-                <button class="round-btn" onclick="switchRound('admission')">รอบที่ 3 ADMISSION</button>
+                <button class="round-btn active" onclick="switchRound('portfolio', event)">
+                    รอบที่ 1 PORTFOLIO
+                </button>
+
+                <button class="round-btn" onclick="switchRound('quota', event)">
+                    รอบที่ 2 QUOTA
+                </button>
+
+                <button class="round-btn" onclick="switchRound('admission', event)">
+                    รอบที่ 3 ADMISSION
+                </button>
             </div>
-            
+
             <div class="round-image-box">
-                <img id="display-img" src="assets/classroom.jpg" alt="Admission Detail">
+                <img id="display-img" src="assets/Admission1.png">
             </div>
+
         </div>
     </section>
 
+    <!-- STATS -->
     <section class="admission-stats">
         <div class="stat-item">
-            <img src="assets/icon-portfolio.png" alt="icon">
+            <img src="assets/icon1.png">
             <h4>PORTFOLIO</h4>
             <p>รับสมัคร 75 คน</p>
         </div>
+
         <div class="stat-item">
-            <img src="assets/icon-quota.png" alt="icon">
+            <img src="assets/icon2.png">
             <h4>QUOTA</h4>
             <p>รับสมัคร 15 คน</p>
         </div>
+
         <div class="stat-item">
-            <img src="assets/icon-admission.png" alt="icon">
+            <img src="assets/icon3.png">
             <h4>ADMISSION</h4>
             <p>รับสมัคร 5 คน</p>
         </div>
     </section>
 
-    <script>
-        function switchRound(round) {
-            const imgElement = document.getElementById('display-img');
-            const images = {
-                'portfolio': 'assets/classroom.jpg', // เปลี่ยนเป็นชื่อไฟล์จริง
-                'quota': 'assets/image-quota.jpg',
-                'admission': 'assets/image-admission.jpg'
-            };
-            
-            if(images[round]) {
-                imgElement.src = images[round];
-            }
-            
-            // เปลี่ยนสถานะปุ่ม Active
-            const buttons = document.querySelectorAll('.round-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(event.target.tagName === 'BUTTON') {
-                event.target.classList.add('active');
-            }
-        }
-    </script>
+    <!-- FOOTER -->
+    <footer class="admission-footer">
+        <div class="footer-links">
+            <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบสมัคร</a>
+            <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบแฟ้มสะสมผลงานออนไลน์(iFOLIO)</a>
+        </div>
+
+        <div class="footer-banner">
+            <img src="assets/Admission3.png">
+        </div>
+    </footer>
+
+</div>
+
+<script>
+function switchRound(round, event) {
+
+    const imgElement = document.getElementById('display-img');
+
+    const images = {
+        portfolio: 'assets/Admission1.png',
+        quota: 'assets/Admission2.png',
+        admission: 'assets/Admission3.png'
+    };
+
+    imgElement.src = images[round];
+
+    document.querySelectorAll('.round-btn')
+        .forEach(btn => btn.classList.remove('active'));
+
+    event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>
