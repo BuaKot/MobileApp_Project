@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f6f6f6;
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+
+.header-top {
+  background: #8B0000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  transform: translateY(10px);
+}
+
+.header-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.header-right {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+  font-size: 14px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+    background: linear-gradient(90deg, #5c0000, #8B0000, #5c0000);
+    padding:22px 0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    list-style:none;
+    gap:90px;          /* เพิ่มระยะห่าง */
+}
+
+nav ul li{
+    color:white;
+    cursor:pointer;
+    position:relative;
+    font-weight:500;
+    font-size:18px;
+    letter-spacing:1px;
+    transition:0.3s ease;
+}
+
+nav ul li:hover{
+    color:#ffe5e5;
+}
+
+/* เส้น underline animation */
+nav ul li::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:#ffffff;
+    transition:0.3s;
+}
+
+nav ul li:hover::after{
+    width:100%;
+}
+
+
+
+/* =========================
+   DROPDOWN
+========================= */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    background: white;
+    color: #333;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+}
+
+.dropdown-content div {
+    padding: 10px 15px;
+}
+
+.dropdown-content div:hover {
+    background: #f4f4f4;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    height: 350px;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 48px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+.container {
+    width: 80%;
+    margin: 60px auto;
+}
+
+.section-title {
+    background: #3D0B0E;
+    color: white;
+    padding: 12px 25px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 5vw, 28px);
+}
+
+.content-box {
+    background: #fdecec;
+    padding: 35px;
+    border-radius: 15px;
+    line-height: 1.8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.content-box ul {
+    margin-top: 15px;
+    padding-left: 25px;
+}
+
+.content-box li {
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    background: white;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px; /* แก้ 5opx → 50px */
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .container {
+        width: 90%;
+    }
+}
