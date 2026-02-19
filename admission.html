@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission - IoT Engineering</title>
+    <title>Admission</title>
 
     <link rel="stylesheet" href="css/admission.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,126 +11,101 @@
 
 <body>
 
-<div class="page-container">
+<header class="main-header">
 
-    <header class="main-header">
-
-        <div class="top-bar">
-            <div class="top-right">
-                <span>📍 E-12 Building</span>
-                <span>✉ iote@kmitl.ac.th</span>
-            </div>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-right">
+            <span>📍 E-12 Building</span>
+            <span>✉ iote@kmitl.ac.th</span>
         </div>
+    </div>
 
-        <nav class="navbar">
-            <div class="navbar-left">
-                <img src="assets/logo.png" class="logo">
-                <span class="title">Department of IoT & Information Engineering</span>
-            </div>
+    <!-- LOGO BAR -->
+    <div class="logo-bar">
+        <img src="assets/Logo.png" class="logo">
+        <h1>Department of IoT & Information Engineering</h1>
+    </div>
 
-            <ul class="navbar-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Academics</a></li>
-                <li><a href="#" class="active">Admission</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Performance</a></li>
-            </ul>
-        </nav>
+    <!-- MENU BAR -->
+    <nav class="menu-bar">
+        <a href="#">Home</a>
+        <a href="#">Academics</a>
+        <a href="#" class="active">Admission</a>
+        <a href="#">Contact ▾</a>
+        <a href="#">Faculty ▾</a>
+        <a href="#">Performance</a>
+    </nav>
 
-    </header>
+</header>
 
-    <!-- HERO -->
-    <section class="hero-admission">
-        <div class="hero-content">
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-box">
             <h3>What is IoT and Information Engineering?</h3>
-            <div class="red-line"></div>
+            <div class="line"></div>
             <p>
-                The program is a strategic fit for the country's targeted
-                "S-Curve" industries — specifically Smart Electronics and the
+                The program is a strategic fit for the country's targeted 
+                "S-Curve" industries — specifically Smart Electronics and the 
                 Digital Industry (New S-Curve).
             </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ROUNDS -->
-    <section class="admission-rounds">
-        <div class="container">
+<!-- ROUNDS -->
+<section class="rounds">
+    <div class="round-container">
 
-            <div class="round-list">
-                <button class="round-btn active" onclick="switchRound('portfolio', event)">
-                    รอบที่ 1 PORTFOLIO
-                </button>
-
-                <button class="round-btn" onclick="switchRound('quota', event)">
-                    รอบที่ 2 QUOTA
-                </button>
-
-                <button class="round-btn" onclick="switchRound('admission', event)">
-                    รอบที่ 3 ADMISSION
-                </button>
-            </div>
-
-            <div class="round-image-box">
-                <img id="display-img" src="assets/Admission1.png">
-            </div>
-
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="admission-stats">
-        <div class="stat-item">
-            <img src="assets/icon1.png">
-            <h4>PORTFOLIO</h4>
-            <p>รับสมัคร 75 คน</p>
+        <div class="round-buttons">
+            <button class="active">รอบที่ 1 PORTFOLIO</button>
+            <button>รอบที่ 2 QUOTA</button>
+            <button>รอบที่ 3 ADMISSION</button>
         </div>
 
-        <div class="stat-item">
-            <img src="assets/icon2.png">
-            <h4>QUOTA</h4>
-            <p>รับสมัคร 15 คน</p>
+        <div class="round-image">
+            <img src="assets/Admission1.png">
         </div>
 
-        <div class="stat-item">
-            <img src="assets/icon3.png">
-            <h4>ADMISSION</h4>
-            <p>รับสมัคร 5 คน</p>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="admission-footer">
-        <div class="footer-links">
-            <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบสมัคร</a>
-            <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบแฟ้มสะสมผลงานออนไลน์(iFOLIO)</a>
-        </div>
+<!-- BANNER -->
+<section class="banner">
+    <img src="assets/Admission2.png">
+</section>
 
-        <div class="footer-banner">
-            <img src="assets/Admission3.png">
-        </div>
-    </footer>
+<!-- STATS -->
+<section class="stats">
+    <div class="stat">
+        <img src="assets/icon1.png">
+        <h4>PORTFOLIO</h4>
+        <p>รับสมัคร 75 คน</p>
+    </div>
 
-</div>
+    <div class="stat">
+        <img src="assets/icon2.png">
+        <h4>QUOTA</h4>
+        <p>รับสมัคร 15 คน</p>
+    </div>
 
-<script>
-function switchRound(round, event) {
+    <div class="stat">
+        <img src="assets/Icon3.png">
+        <h4>ADMISSION</h4>
+        <p>รับสมัคร 5 คน</p>
+    </div>
+</section>
 
-    const imgElement = document.getElementById('display-img');
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบสมัคร</a>
+        <a href="#"><img src="assets/icon-book.png"> คู่มือการใช้งานระบบแฟ้มสะสมผลงานออนไลน์ (iFOLIO)</a>
+    </div>
 
-    const images = {
-        portfolio: 'assets/Admission1.png',
-        quota: 'assets/Admission2.png',
-        admission: 'assets/Admission3.png'
-    };
-
-    imgElement.src = images[round];
-
-    document.querySelectorAll('.round-btn')
-        .forEach(btn => btn.classList.remove('active'));
-
-    event.target.classList.add('active');
-}
-</script>
+    <img src="assets/Admission3.png">
+</footer>
 
 </body>
 </html>

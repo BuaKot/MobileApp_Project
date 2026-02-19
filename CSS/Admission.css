@@ -1,27 +1,21 @@
 :root {
-    --main-red: #7b0000;
-    --dark-red: #5a0000;
+    --red-main: #7b0000;
+    --red-dark: #5a0000;
     --gold: #FFD700;
 }
 
-/* RESET */
 body {
     margin: 0;
     font-family: 'Prompt', sans-serif;
-    background: #d3d3d3;
 }
 
-/* HEADER */
-.main-header {
-    width: 100%;
-    background: var(--main-red);
-    color: white;
-}
+/* ===== HEADER ===== */
 
-/* TOP BAR */
 .top-bar {
+    background: var(--red-main);
+    color: white;
     font-size: 13px;
-    padding: 8px 6%;
+    padding: 6px 8%;
     display: flex;
     justify-content: flex-end;
 }
@@ -29,160 +23,227 @@ body {
 .top-right {
     display: flex;
     gap: 20px;
-    opacity: 0.9;
 }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--dark-red);
-    padding: 10px 40px;
-}
-
-.navbar-left {
+.logo-bar {
+    background: var(--red-main);
+    color: white;
+    padding: 10px 8%;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .logo {
-    height: 40px;
+    height: 50px;
 }
 
-.title {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.navbar-menu {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+.logo-bar h1 {
+    font-size: 26px;
     margin: 0;
-    padding: 0;
+    font-weight: 500;
 }
 
-.navbar-menu a {
-    text-decoration: none;
+.menu-bar {
+    background: var(--red-dark);
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    padding: 12px;
+}
+
+.menu-bar a {
     color: white;
+    text-decoration: none;
     font-size: 14px;
 }
 
-.navbar-menu a:hover {
-    color: var(--gold);
-}
-
-.navbar-menu .active {
+.menu-bar a.active {
     border-bottom: 2px solid white;
     padding-bottom: 3px;
 }
 
-/* HERO */
-.hero-admission {
+/* ===== HERO ===== */
+
+.hero {
     position: relative;
-    background-image: url("../assets/What.png");
+    height: 420px;              /* ← ความสูงสำคัญมาก */
+    background-image: url("assets/admission.png");
     background-size: cover;
     background-position: center;
-    height: 420px;
+    background-repeat: no-repeat;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.hero-admission::before {
+
+.hero {
+    position: relative;
+}
+
+.hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
 }
 
-.hero-content {
+
+.hero-overlay {
     position: relative;
-    background-color: rgba(128, 0, 0, 0.85);
-    color: white;
-    padding: 30px 40px;
-    max-width: 750px;
-    text-align: center;
+    z-index: 1;
 }
 
-.red-line {
-    width: 60px;
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.hero-box {
+    background: rgba(123, 0, 0, 0.95);
+    color: white;
+
+    padding: 28px 55px;     /* ← ลด padding */
+    max-width: 780px;
+
+    text-align: center;
+    border-radius: 2px;
+}
+
+
+.hero-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+
+.line {
+    width: 70px;
     height: 3px;
     background: white;
-    margin: 12px auto;
+    margin: 10px auto 18px;
 }
 
-/* ROUNDS */
-.admission-rounds {
-    padding: 45px 10% 25px;
+.hero-box p {
+    font-size: 15px;
+    line-height: 1.6;
 }
 
-.container {
+
+/* ===== ROUNDS ===== */
+
+.rounds {
+    padding: 40px 10%;
+}
+
+.round-container {
     display: flex;
-    gap: 28px;
     justify-content: center;
-    align-items: center;
+    gap: 35px;
 }
 
-.round-list {
+.round-buttons {
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 12px;
 }
 
-.round-btn {
-    background-color: #4a2c2a;
-    color: white;
+.round-buttons button {
+    width: 240px;
+    height: 40px;
     border: none;
-    width: 235px;
-    height: 34px;
+    background: #4a2c2a;
+    color: white;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 15px;
     cursor: pointer;
 }
 
-.round-btn.active {
-    background-color: var(--main-red);
+.round-buttons button.active {
+    background: var(--red-main);
     border-left: 5px solid var(--gold);
 }
 
-.round-image-box img {
-    width: 360px;
-    height: 150px;
-    object-fit: cover;
+.round-image img {
+    width: 380px;
 }
 
-/* STATS */
-.admission-stats {
+/* ===== BANNER ===== */
+
+.banner img {
+    width: 100%;
+}
+
+/* ===== STATS ===== */
+
+.stats {
     display: flex;
     justify-content: center;
-    gap: 90px;
-    padding: 35px 0;
+    gap: 120px;
+    padding: 45px 0;
 }
 
-.stat-item img {
-    width: 58px;
-}
-
-/* FOOTER */
-.admission-footer {
-    background: var(--dark-red);
-    color: white;
-    padding: 20px;
+.stat {
     text-align: center;
+}
+
+.stat img {
+    width: 70px;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    background: var(--red-main);
+    color: white;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 10px;
+    gap: 60px;
+    padding: 15px;
 }
 
 .footer-links a {
     color: white;
     text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+    .logo-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-bar {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .round-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
