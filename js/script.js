@@ -1,26 +1,42 @@
-function switchRound(round) {
+function switchRound(round, event) {
     const imgElement = document.getElementById('display-img');
-    
-    // กำหนดเส้นทางรูปภาพตามที่ระบุใน Figma
-    // (เปลี่ยนชื่อไฟล์รูปภาพให้ตรงกับที่คุณเซฟไว้ในโฟลเดอร์ assets)
+
+    // 1. เส้นทางรูปภาพ (ตรวจสอบให้ตรงกับโฟลเดอร์ assets ของคุณ)
     const images = {
-        'portfolio': 'assets/image-portfolio.jpg',
-        'quota': 'assets/image-quota.jpg',
-        'admission': 'assets/image-admission.jpg'
+        'portfolio': 'assets/Admission1.png',
+        'quota': 'assets/Admission2.png',
+        'admission': 'assets/Admission4.png'
     };
 
-    // 1. เปลี่ยนรูปภาพพร้อมใส่ Effect เล็กน้อย (Optional)
-    imgElement.style.opacity = 0; // ค่อยๆ จางออก
-    
+    // 2. เปลี่ยนรูปภาพพร้อม Effect จางเข้า-ออก
+    imgElement.style.opacity = 0;
     setTimeout(() => {
         imgElement.src = images[round];
-        imgElement.style.opacity = 1; // ค่อยๆ แสดงขึ้นมา
+        imgElement.style.opacity = 1;
     }, 200);
 
-    // 2. จัดการเรื่อง Class 'active' เพื่อให้ปุ่มที่กดค้างอยู่มีสีที่ต่างออกไป
-    const buttons = document.querySelectorAll('.round-btn');
+    // 3. จัดการ Class 'active' ให้ปุ่มหลัก
+    const buttons = document.querySelectorAll('.main-round-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // ค้นหาปุ่มที่ตรงกับรอบที่เลือกและเติม class active
-    event.currentTarget.classList.add('active');
+
+    if (event) {
+        event.currentTarget.classList.add('active');
+    }
+
+    // 4. จัดการการแสดงผลเมนูย่อย (Sub-projects)
+    document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
+    const targetSub = document.getElementById('sub-' + round);
+    if (targetSub) {
+        targetSub.classList.add('show');
+    }
+}
+
+function toggleDetail(detailId) {
+    const detail = document.getElementById(detailId);
+    // ตรวจสอบสถานะการแสดงผลแบบ Toggle
+    if (detail.style.display === "none" || detail.style.display === "") {
+        detail.style.display = "block";
+    } else {
+        detail.style.display = "none";
+    }
 }
