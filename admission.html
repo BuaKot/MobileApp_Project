@@ -6,159 +6,133 @@
     <title>Admission - IoT & Information Engineering</title>
     <link rel="stylesheet" href="css/admission.css">
     
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
-    <div class="header-top">
 
-        <div class="header-left">
-            <img src="assets/Logo.png" alt="IoT Logo" class="logo">
-
-            <div class="header-title">
-                <h1>Department of IoT &</h1>
-                <h1>Information Engineering</h1>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="top-right">
+                <span>E-12 Building</span>
+                <span>✉ iote@kmitl.ac.th</span>
             </div>
         </div>
-
-        <div class="header-right">
-            <span>E-12 Building</span>
-            <span>✉ iote@kmitl.ac.th</span>
+        
+        <div class="logo-bar">
+            <img src="assets/Logo.png" alt="IoT Logo" class="logo">
+            <div class="header-title">
+                <h2 style="font-size: 1.2rem; line-height: 1.2;">Department of IoT &<br>Information Engineering</h2>
+            </div>
         </div>
+    </header>
 
-    </div>
-    <!-- NAVIGATION -->
-     <div class="nav-container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="academic.html">Academics</a></li>
-                <li><a href="admission.html">Admission</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="performance.html">Performance</a></li>
-                <li class="dropdown">
-                    Faculty
-                    <div class="dropdown-content">
-                    </div>
-            </ul>
-        </nav>
-    </div>
-<section class="hero">
-    <div class="hero-overlay">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="academic.html">Academics</a></li>
+            <li><a href="admission.html">Admission</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="performance.html">Performance</a></li>
+            <li class="dropdown">
+                Faculty
+                <div class="dropdown-content">
+                    <div><a href="#">โครงสร้างองค์กร</a></div>
+                    <div><a href="#">บุคลากร</a></div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero">
         <div class="hero-box">
             <h3>What is IoT and Information Engineering?</h3>
             <div class="line"></div>
             <p>The program is a strategic fit for the country's targeted "S-Curve" industries — specifically Smart Electronics and the Digital Industry (New S-Curve).</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="rounds">
-    <div class="round-container">
-        <div class="round-buttons">
-            
-            <div class="group">
-                <button class="main-round-btn active" onclick="toggleSub('portfolio')">รอบที่ 1 PORTFOLIO</button>
-                <div id="sub-portfolio" class="sub-projects">
-                    <button class="sub-btn">▼ PORTFOLIO</button>
-                    <button class="sub-btn">▲ โครงการ Young Engineering Talent</button>
-                    <button class="sub-btn">▲ โครงการรางวัลและประกาศนียบัตร...</button>
-                    <button class="sub-btn">▲ โครงการเรียนดีช้างเผือก...</button>
-                    <button class="sub-btn">▲ โครงการโรงเรียนวิทยาศาสตร์</button>
-                    <button class="sub-btn">▲ โครงการ Engineering Pathway</button>
-                </div>
-            </div>
-
-            <div class="group">
-                <button class="main-round-btn" onclick="toggleSub('quota')">รอบที่ 2 QUOTA</button>
-                <div id="sub-quota" class="sub-projects">
-                    <button class="sub-btn">▼ QUOTA</button>
-                    
-                    <div class="sub-group">
-                        <button class="sub-btn" onclick="toggleQuotaDetail(event, 'study-good')">▲ โควตาเรียนดี</button>
-                        <div id="detail-study-good" class="quota-detail-content">
-                            <div class="detail-card">
-                                <h5>คุณสมบัติ</h5>
-                                <ul>
-                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรแกนกลาง</li>
-                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรนานาชาติ</li>
-                                    <li>รับผู้สมัครที่จบจาก รร. หลักสูตรอาชีวะ</li>
-                                    <li>มีผลการเรียนเฉลี่ยสะสม 5 เทอม ไม่น้อยกว่า 3.00</li>
-                                </ul>
-                                <p><strong>จำนวนเปิดรับ:</strong> 15 คน (รับร่วมกัน)</p>
-                                <p><strong>รายละเอียด:</strong> <a href="https://new.reg.kmitl.ac.th/admission/#/" target="_blank">คลิกดูเพิ่มเติม</a></p>
-                            </div>
-                        </div>
+    <section class="rounds">
+        <div class="round-container">
+            <div class="round-buttons">
+                <div class="group">
+                    <button class="main-round-btn active" onclick="toggleSub('portfolio', this)">รอบที่ 1 PORTFOLIO</button>
+                    <div id="sub-portfolio" class="sub-projects show">
+                        <button class="sub-btn">▼ PORTFOLIO</button>
+                        <button class="sub-btn">▲ โครงการ Young Engineering Talent</button>
+                            <button class="sub-btn">▼โครงการ Young Engineering Talent</button>
+                        <button class="sub-btn">▲ โครงการ Engineering Pathway</button>
+                        ▼
                     </div>
+                </div>
 
-                    <button class="sub-btn">▲ โควตากิจกรรม K-Engineering</button>
-                    <button class="sub-btn">▲ โควตา KMITL One</button>
+                <div class="group">
+                    <button class="main-round-btn" onclick="toggleSub('quota', this)">รอบที่ 2 QUOTA</button>
+                    <div id="sub-quota" class="sub-projects">
+                        <button class="sub-btn" onclick="toggleQuotaDetail(event, 'study-good')">▲ โควตาเรียนดี</button>
+                        <div id="detail-study-good" class="quota-detail-content" style="display:none; padding: 10px; background: #f9f9f9; font-size: 14px; border-left: 3px solid var(--red-main);">
+                            <strong>คุณสมบัติ:</strong> GPAX 5 เทอม ≥ 3.00<br>
+                            <strong>รับสมัคร:</strong> 15 คน
+                        </div>
+                        <button class="sub-btn">▲ โควตา KMITL One</button>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button class="main-round-btn" onclick="toggleSub('admission', this)">รอบที่ 3 ADMISSION</button>
                 </div>
             </div>
 
-            <div class="group">
-                <button class="main-round-btn" onclick="toggleSub('admission')">รอบที่ 3 ADMISSION</button>
+            <div class="round-image">
+                <img id="display-img" src="assets/Admission1.png" alt="Admission Detail">
             </div>
         </div>
+    </section>
 
-        <div class="round-image">
-            <img id="display-img" src="assets/Admission1.png" alt="Admission Detail">
+    <section class="stats">
+        <div class="stat-container">
+            <div class="stat"><img src="assets/icon1.png"><h4>PORTFOLIO</h4><p>รับสมัคร 75 คน</p></div>
+            <div class="stat"><img src="assets/icon2.png"><h4>QUOTA</h4><p>รับสมัคร 15 คน</p></div>
+            <div class="stat"><img src="assets/Icon3.png"><h4>ADMISSION</h4><p>รับสมัคร 5 คน</p></div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="stats">
-    <div class="stat-container">
-        <div class="stat"><img src="assets/icon1.png"><h4>PORTFOLIO</h4><p>รับสมัคร 75 คน</p></div>
-        <div class="stat"><img src="assets/icon2.png"><h4>QUOTA</h4><p>รับสมัคร 15 คน</p></div>
-        <div class="stat"><img src="assets/Icon3.png"><h4>ADMISSION</h4><p>รับสมัคร 5 คน</p></div>
-    </div>
-</section>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#"><img src="assets/icon-book.png" width="20"> คู่มือระบบสมัคร</a>
+            <a href="#"><img src="assets/icon-book.png" width="20"> คู่มือ iFOLIO</a>
+        </div>
+        <div class="footer-img">
+            <img src="assets/Admission3.png">
+        </div>
+    </footer>
 
-<footer class="footer">
-    <div class="footer-links">
-        <a href="#"><img src="assets/icon-book.png"> คู่มือระบบสมัคร</a>
-        <a href="#"><img src="assets/icon-book.png"> คู่มือ iFOLIO</a>
-    </div>
-    <div class="footer-img">
-        <img src="assets/Admission3.png" style="width: 100%;">
-    </div>
-</footer>
+    <script>
+        function toggleSub(round, btn) {
+            // 1. ปิด sub-projects ทั้งหมด
+            document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
+            // 2. เอา class active ออกจากทุกปุ่มหลัก
+            document.querySelectorAll('.main-round-btn').forEach(b => b.classList.remove('active'));
+            
+            // 3. จัดการแสดงผลตามรอบที่เลือก
+            const img = document.getElementById('display-img');
+            btn.classList.add('active');
 
-<script>
-    function toggleSub(round) {
-        // 1. ปิดเมนูย่อยและถอนสถานะ Active ทั้งหมด
-        document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
-        document.querySelectorAll('.main-round-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.quota-detail-content').forEach(el => el.classList.remove('show'));
-
-        const img = document.getElementById('display-img');
-        
-        // 2. สลับการแสดงผลตามรอบ
-        if(round === 'portfolio') {
-            document.getElementById('sub-portfolio').classList.add('show');
-            img.src = 'assets/Admission1.png';
-        } else if(round === 'quota') {
-            document.getElementById('sub-quota').classList.add('show');
-            img.src = 'assets/Admission2.png';
-        } else if(round === 'admission') {
-            img.src = 'assets/Admission4.png'; // ตรวจสอบชื่อไฟล์รูปเกณฑ์คะแนน Admission
+            if(round === 'portfolio') {
+                document.getElementById('sub-portfolio').classList.add('show');
+                img.src = 'assets/Admission1.png';
+            } else if(round === 'quota') {
+                document.getElementById('sub-quota').classList.add('show');
+                img.src = 'assets/Admission2.png';
+            } else if(round === 'admission') {
+                img.src = 'assets/Admission4.png';
+            }
         }
-        
-        // 3. ใส่ Active ให้ปุ่มหลัก
-        event.currentTarget.classList.add('active');
-    }
 
-    function toggleQuotaDetail(e, detailId) {
-        e.stopPropagation(); // กันไม่ให้ไปเรียก toggleSub ซ้ำ
-        const detail = document.getElementById('detail-' + detailId);
-        detail.classList.toggle('show');
-    }
-</script>
-
+        function toggleQuotaDetail(e, id) {
+            e.stopPropagation();
+            const detail = document.getElementById('detail-' + id);
+            detail.style.display = (detail.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>
