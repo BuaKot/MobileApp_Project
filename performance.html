@@ -23,7 +23,7 @@
     <div class="header-top">
 
         <div class="header-left">
-            <img src="LogoIOT.png" alt="IoT Logo" class="logo">
+            <img src="pic/LogoIOT.png" alt="IoT Logo" class="logo">
 
             <div class="header-title">
                 <h1>Department of IoT &</h1>
@@ -42,33 +42,30 @@
 
 
     <!-- NAVIGATION -->
-    <nav>
-        <ul>
-            <li onclick="scrollToTop()">Home</li>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academic.html">Academics</a></li>
+                <li><a href="admission.html">Admission</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    Faculty
+                    <div class="dropdown-content">
+                        <a href="Professor of IoTE.html">Professor of IoT System and Information</a>
+                        <a href="Professor of PhysIoTE.html">Professor of Industrial Physics</a>
+                    </div>
+                </li>
 
-            <li onclick="showAlert('About IOTE')">Academics</li>
-
-            <li onclick="showAlert('Admission')">Admission</li>
-
-            <li onclick="showAlert('Contact')">Contact</li>
-
-            <li class="dropdown">
-                Faculty
-                <div class="dropdown-content">
-                    <div onclick="showAlert('Professor of IoT System and Information')">Professor of IoT System and
-                        Information</div>
-                    <div onclick="showAlert('Professor of Industrial Physics')">Professor of Industrial Physics</div>
-                </div>
-            </li>
-
-            <li onclick="showAlert('Performance')">Performance</li>
-        </ul>
-    </nav>
+                <li><a href="performance.html">Performance</a></li>
+            </ul>
+        </nav>
+    </div>
 
 
     <!-- HERO -->
     <section class="hero">
-        <h2>Performance</h2>
+        <h2>Definition of Lab Security</h2>
     </section>
 
     <!-- CONTENT -->
@@ -88,7 +85,7 @@
             <br>
 
             <ul>
-                <p>
+                <p class="highlight-red">
                     Cyber security labs typically focus on two main areas:
                 </p>
                 <li>Defensive Security : This includes activities like setting up firewalls, intrusion detection
@@ -105,8 +102,7 @@
 
     <!-- FOOTER -->
     <div class="footer">
-        <img src="LogoLAB.png" alt="Logo LAB" class="footer-logo">
-        <p class="footer-text">© 2026 LAB Company. All rights reserved.</p>
+        <img src="pic/LogoLAB.png" alt="Logo LAB" class="footer-logo">
     </div>
 
     <!-- JS -->
