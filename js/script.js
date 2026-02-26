@@ -31,12 +31,31 @@ function switchRound(round, event) {
     }
 }
 
-function toggleDetail(detailId) {
-    const detail = document.getElementById(detailId);
-    // ตรวจสอบสถานะการแสดงผลแบบ Toggle
-    if (detail.style.display === "none" || detail.style.display === "") {
-        detail.style.display = "block";
+function toggleProject(projectId) {
+    const detail = document.getElementById(projectId);
+    const roundImage = document.querySelector('.round-image');
+    const roundContainer = document.querySelector('.round-container');
+
+    // ตรวจสอบว่ากำลังจะเปิดหรือปิด
+    if (detail.style.display === 'none' || detail.classList.contains('hide')) {
+        // กรณี "เปิด" รายละเอียด
+        detail.style.display = 'block';
+        roundImage.classList.add('hide');       /* สั่งซ่อนรูปภาพ */
+        roundContainer.classList.add('expanded'); /* ขยายพื้นที่ container */
     } else {
-        detail.style.display = "none";
+        // กรณี "ปิด" รายละเอียด
+        detail.style.display = 'none';
+        
+        // เช็คว่ามีโครงการอื่นเปิดอยู่ไหม ถ้าไม่มีเลยค่อยเอารูปกลับมา
+        const allDetails = document.querySelectorAll('.quota-detail-content');
+        let anyOpen = false;
+        allDetails.forEach(d => {
+            if (d.style.display === 'block') anyOpen = true;
+        });
+
+        if (!anyOpen) {
+            roundImage.classList.remove('hide');
+            roundContainer.classList.remove('expanded');
+        }
     }
 }

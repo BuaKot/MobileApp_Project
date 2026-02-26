@@ -48,6 +48,9 @@ body {
     align-items: center;
     padding: 15px 5%;
     background: var(--red-main);
+    height: 100px;
+    width: auto;
+    transform: translateY(10px);
     /* ตรวจสอบให้แน่ใจว่าแถบโลโก้เป็นสีแดงหลัก */
 }
 
@@ -261,8 +264,8 @@ nav ul li:hover::after {
 }
 
 .main-round-btn {
-    width: 350px;
-    padding: 15px 25px;
+    width: 450px;
+    padding: 30px 40px;
     border: none;
     background: var(--brown-btn);
     color: white;
@@ -289,20 +292,20 @@ nav ul li:hover::after {
 }
 
 .sub-btn {
-    width: 320px;
+    width: 100%;
     background: var(--red-main);
     color: white;
     border: none;
-    padding: 12px 15px;
+    padding: 15px 20px;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
 }
 
 .round-image img {
     width: 100%;
-    max-width: 550px;
+    max-width: 700px;
     box-shadow: 15px 15px 0px #f4f4f4;
 }
 
@@ -363,22 +366,71 @@ nav ul li:hover::after {
     }
 
     .sub-btn {
-        width: 280px;
+        width: 350px;
     }
 }
 
 /* ส่วนเนื้อหาที่เด้งลงมา */
 .quota-detail-content {
-    margin-left: 20px;
+    margin-left: 0;
     margin-bottom: 10px;
     font-size: 14px;
     color: #333;
     transition: all 0.3s ease;
-    /* เพิ่มความสมูท */
+    padding-right: 20px;     /* เพิ่มพื้นที่ด้านขวาไม่ให้ข้อความชิดขอบ */
+        
+    background-color: #fff5f5; /* เพิ่มสีพื้นหลังชมพูอ่อนแบบในรูป */
+    padding: 20px 30px;       /* เพิ่มช่องว่างภายในให้ดูไม่เบียด */
+    width: 100%;       /* หัวใจสำคัญ: ให้กล่องกว้างตามเนื้อหาที่ยาวที่สุด */
+    min-width: 100%;          /* หรือใช้ 100% ถ้าต้องการให้กว้างเท่าหัวข้อโครงการ */
+    display: block;           /* มั่นใจว่าเป็น block เพื่อรับค่า padding/background */
+    line-height: 1.8;         /* เพิ่มระยะบรรทัดให้อ่านง่าย */
 }
 
 /* ปรับระยะห่างของกลุ่มปุ่มย่อย */
 .sub-group {
-    margin-bottom: 5px;
-    width: 320px;
+    margin-bottom: 15px;
+    width: 100%;             /* ให้กลุ่มนี้ขยายกว้างตามพื้นที่ container หลัก */
+    max-width: 900px;        /* กำหนดความกว้างสูงสุดเพื่อให้ดูสวยงามเหมือนในรูป */
+}
+.quota-detail-content ul {
+    list-style: none;        /* เอาจุดเดิมออกเพื่อใส่จุดใหม่ที่จัดวางง่ายกว่า */
+    padding-left: 0;
+}
+
+.quota-detail-content li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.quota-detail-content li::before {
+    content: "•";            /* ใส่จุดไข่ปลาหน้าข้อความ */
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* คลาสสำหรับซ่อนรูปภาพ */
+.round-image.hide {
+    display: none;
+}
+
+/* ปรับให้ container ยืดเต็มพื้นที่เมื่อไม่มีรูป */
+.round-container.expanded {
+    display: block; /* เปลี่ยนจาก flex เป็น block เพื่อให้กล่องข้อความยาวเต็มจอ */
+}
+/* จัดการ Layout เมื่อซ่อนรูป */
+.round-container.expanded {
+    display: block; /* ยกเลิก Flex เพื่อให้ปุ่มขยายเต็มหน้าจอ */
+}
+
+.round-container.expanded .round-buttons {
+    width: 100%; /* ขยายกลุ่มปุ่มให้กว้างเต็มคอนเทนเนอร์ */
+}
+
+/* คลาสสำหรับซ่อนรูปภาพ */
+.round-image.hide {
+    display: none;
 }
