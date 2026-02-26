@@ -27,7 +27,7 @@
         <div class="logo-bar">
             <img src="assets/Logo.png" alt="IoT Logo" class="logo">
             <div class="header-title">
-                <h2>Department of IoT &<br>Information Engineering</h2>
+                <h1>Department of IoT &<br>Information Engineering</h1>
             </div>
         </div>
     </header>
@@ -391,74 +391,54 @@
         // รวมเป็นฟังก์ชันเดียว และจัดการเรื่องการสลับรูป/สถานะให้ครบ
         function switchRound(round, event) {
             const imgElement = document.getElementById('display-img');
-            const roundImage = document.querySelector('.round-image');
-            const roundContainer = document.querySelector('.round-container');
             const images = {
                 'portfolio': 'assets/Admission1.png',
-                'quota': 'assets/Admission2.png',
-                'admission': 'assets/Admission4.png'
+                'quota': 'assets/Admission1.png',
+                'admission': 'assets/Admission1.png'
             };
 
-            // 1. ปิดรายละเอียดที่เปิดค้างไว้ทั้งหมด
+            // 1. ปิดรายละเอียดที่เปิดค้างไว้ทั้งหมด และเปลี่ยนลูกศรกลับเป็น ▲
             document.querySelectorAll('.quota-detail-content').forEach(d => d.style.display = 'none');
             document.querySelectorAll('.sub-btn').forEach(b => {
-                b.innerHTML = b.innerHTML.replace('▼', '▲');
+                b.innerText = b.innerText.replace('▼', '▲');
             });
 
-            // 2. รีเซ็ต Layout รูปภาพ
-            if (roundImage) roundImage.classList.remove('hide');
-            if (roundContainer) roundContainer.classList.remove('expanded');
+            // 2. >>> แก้ไข: ลบคำสั่งจัดการคลาส 'hide' และ 'expanded' ออกเพื่อให้รูปคงอยู่ตลอด <<<
 
-            // 3. เปลี่ยนรูปพร้อม Effect
-            imgElement.style.opacity = 0;
-            setTimeout(() => {
-                imgElement.src = images[round] || images['portfolio'];
-                imgElement.style.opacity = 1;
-            }, 200);
+            // 3. เปลี่ยนรูปพร้อม Effect Fade (หากต้องการให้รูปเดิมค้างไว้เฉยๆ ก็ตัดส่วนนี้ออกได้ครับ)
+            if (imgElement) {
+                imgElement.style.opacity = 0;
+                setTimeout(() => {
+                    imgElement.src = images[round] || images['portfolio'];
+                    imgElement.style.opacity = 1;
+                }, 200);
+            }
 
-            // 4. จัดการปุ่ม Active
+            // 4. จัดการปุ่มหลัก (Active Class)
             document.querySelectorAll('.main-round-btn').forEach(btn => btn.classList.remove('active'));
             if (event) event.currentTarget.classList.add('active');
 
-            // 5. สลับเมนูย่อย
+            // 5. สลับการแสดงผลเมนูย่อย (Sub-projects)
             document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
             const targetSub = document.getElementById('sub-' + round);
             if (targetSub) targetSub.classList.add('show');
         }
-        // ฟังก์ชันเปิด/ปิด รายละเอียดโครงการย่อย พร้อมจัดการรูปภาพด้านขวา
+
+        // ฟังก์ชันเปิด/ปิดรายละเอียดโครงการย่อย
         function toggleDetail(detailId, btn) {
             const detail = document.getElementById(detailId);
-            const roundImage = document.querySelector('.round-image');
-            const roundContainer = document.querySelector('.round-container');
-
-            // ตรวจสอบสถานะว่ากำลังจะเปิดหรือปิด
             const isHidden = (detail.style.display === "none" || detail.style.display === "");
 
             if (isHidden) {
-                // --- จังหวะกดเปิด ---
+                // --- จังหวะเปิดรายละเอียด ---
                 detail.style.display = "block";
                 btn.innerText = btn.innerText.replace('▲', '▼');
 
-                // ซ่อนรูปภาพและขยายคอนเทนเนอร์
-                if (roundImage) roundImage.classList.add('hide');
-                if (roundContainer) roundContainer.classList.add('expanded');
+                // >>> แก้ไข: ลบคำสั่งซ่อนรูปภาพ (hide/expanded) ออก เพื่อให้รูปอยู่ทางขวาเหมือนเดิม <<<
             } else {
-                // --- จังหวะกดปิด ---
+                // --- จังหวะปิดรายละเอียด ---
                 detail.style.display = "none";
                 btn.innerText = btn.innerText.replace('▼', '▲');
-
-                // ตรวจสอบว่ายังมีรายละเอียดอันอื่นเปิดทิ้งไว้อยู่ไหม
-                const allDetails = document.querySelectorAll('.quota-detail-content');
-                let anyOpen = false;
-                allDetails.forEach(d => {
-                    if (d.style.display === 'block') anyOpen = true;
-                });
-
-                // ถ้าปิดหมดทุกอันแล้ว ให้เอารูปภาพกลับมา
-                if (!anyOpen) {
-                    if (roundImage) roundImage.classList.remove('hide');
-                    if (roundContainer) roundContainer.classList.remove('expanded');
-                }
             }
         }
 
