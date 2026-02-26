@@ -9,12 +9,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Prompt', sans-serif;
 }
 
 body {
     background: white;
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ===== HEADER ===== */
@@ -35,8 +35,11 @@ body {
 .top-right span {
     /* กำหนดสีแดงตามที่คุณต้องการ */
     color: #f4f4f4;
-    margin-left: 20px;
-    font-weight: 600;
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 14px;
+    text-align: right;
     /* เพิ่มความหนาให้อ่านง่ายขึ้น */
 }
 
@@ -75,6 +78,13 @@ body {
     width: 100%;
     height: 2px;
     background: white;
+}
+
+.header-title {
+    font-family: 'Inria Serif', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 /* ===== HERO ===== */
@@ -251,7 +261,7 @@ nav ul li:hover::after {
 }
 
 .main-round-btn {
-    width: 280px;
+    width: 350px;
     padding: 15px 25px;
     border: none;
     background: var(--brown-btn);
