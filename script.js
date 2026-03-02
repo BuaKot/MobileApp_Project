@@ -3,9 +3,9 @@ function switchRound(round, event) {
 
     // 1. เส้นทางรูปภาพ (ตรวจสอบให้ตรงกับโฟลเดอร์ assets ของคุณ)
     const images = {
-        'portfolio': 'assets/Admission1.png',
-        'quota': 'assets/Admission2.png',
-        'admission': 'assets/Admission4.png'
+        'portfolio': 'Admission1.png',
+        'quota': 'Admission2.png',
+        'admission': 'Admission4.png'
     };
 
     // 2. เปลี่ยนรูปภาพพร้อม Effect จางเข้า-ออก
