@@ -184,27 +184,34 @@ nav ul li:hover::after {
     min-width: 0; /* ป้องกันเนื้อหาดันจน Flex แตก */
 }
 
-/* ล็อคฝั่งรูปภาพ (ขวา) ให้มีขนาดคงที่ */
 .round-image {
-    /* 1. เปลี่ยนเป็นสี่เหลี่ยม */
-    border-radius: 12px;     /* ใส่ค่าเล็กน้อยเพื่อให้มุมดูนุ่มนวล หรือ 0 ถ้าอยากให้คมเป๊ะ */
-    width: 400px;           /* ปรับขนาดความกว้างตามต้องการ */
-    height: auto;           /* ให้ความสูงปรับอัตโนมัติ */
-    overflow: hidden;
+    /* ล็อกตำแหน่งแบบเด็ดขาด */
+    position: fixed !important;   
+    right: 100px !important;       /* บังคับชิดขวา */
+    left: auto !important;        /* ล้างค่าฝั่งซ้ายเดิมที่อาจค้างอยู่ */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     
-    /* 2. ย้ายไปด้านขวา */
-    float: right;           /* ผลักรูปไปทางขวา */
-    margin-right: 300px;     /* ระยะห่างจากขอบขวา */
-    margin-top: -400px;     /* ปรับค่าลบเพื่อให้รูปขยับขึ้นไปขนานกับเมนู */
+    /* ปรับเป็นสี่เหลี่ยม */
+    width: 350px;                 /* ปรับขนาดตามต้องการ */
+    height: auto;
+    border-radius: 0 !important;  /* ไม่เอาวงกลม */
     
-    /* ตกแต่งเพิ่มเติม */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    z-index: 9999;                /* ให้อยู่บนสุด */
 }
 
 #display-img {
     width: 100%;
     display: block;
 }
+
+/* 3. ปรับแต่งสำหรับมือถือ (จอเล็ก) */
+@media (max-width: 1024px) {
+    .round-image {
+        display: none; /* ซ่อนรูปบนแท็บเล็ตและมือถือเพื่อไม่ให้ทับเมนู */
+    }
+}
+
 .round-image img {
     width: 100%;
     height: auto;
