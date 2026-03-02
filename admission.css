@@ -197,7 +197,7 @@ nav ul li:hover::after {
 ========================= */
 .hero {
     height: 400px;
-    background: url('../assets/What.png') center/cover no-repeat;
+    background: url('assets/What.png') center/cover no-repeat;
     position: relative;
     display: flex;
     align-items: center;
