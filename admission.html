@@ -37,15 +37,23 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="academic.html">Academics</a></li>
             <li><a href="admission.html">Admission</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="Faculty.html">Faculty</a></li>
-            <li><a href="performance.html">Performance</a></li>
             <li class="dropdown">
+                contact
                 <div class="dropdown-content">
-                    <div><a href="#">โครงสร้างองค์กร</a></div>
-                    <div><a href="#">บุคลากร</a></div>
+                        <a href="contact.html">IoT System and Information</a>
+                        <a href="contact.html">Dual Degree</a>
                 </div>
             </li>
+            <li class="dropdown">
+                Faculty
+                <div class="dropdown-content">
+                    <a href="Professor of IoTE.html">Professor of IoT System and Information</a>
+                    <a href="Professor of PhysIoTE.html">Professor of Industrial Physics</a>
+                </div>
+            </li>
+            <li><a href="performance.html">Performance</a></li>
+            <li><a href="CareerPath.html">CareerPath</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
         </ul>
     </nav>
 
@@ -72,7 +80,7 @@
                     </button>
                     <div id="sub-portfolio" class="sub-projects show">
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-awards', this)">▲ โครงการรางวัลและประกาศนียบัตรทางวิชาการ</button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-awards', this); hideImage()">▲ โครงการรางวัลและประกาศนียบัตรทางวิชาการ</button>
                             <div id="detail-awards" class="quota-detail-content"
                                 style="padding: 20px; background: #fff5f5; border-left: 5px solid #8B0000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -103,7 +111,7 @@
                         </div>
 
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-white-elephant', this)">▲ โครงการเรียนดีช้างเผือก</button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-white-elephant', this); hideImage()">▲ โครงการเรียนดีช้างเผือก</button>
                             <div id="detail-white-elephant" class="quota-detail-content"
                                 style="padding: 15px; background: #fff5f5; border-left: 4px solid #800000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -190,7 +198,8 @@
                         </div>
 
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-posn', this)">▲ โครงการให้โควตามูลนิธิ สอวน.</button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-posn', this)">▲ โครงการให้โควตามูลนิธิ
+                                สอวน.</button>
                             <div id="detail-posn" class="quota-detail-content"
                                 style="padding: 15px; background: #fff5f5; border-left: 4px solid #800000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -221,7 +230,7 @@
                         </div>
 
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-staff-child', this)">▲ โครงการบุตรของบุคลากร สจล.</button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-staff-child', this)"> ▲ โครงการบุตรของบุคลากร สจล.</button>
                             <div id="detail-staff-child" class="quota-detail-content"
                                 style="padding: 15px; background: #fff5f5; border-left: 4px solid #800000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -275,8 +284,7 @@
                         </div>
 
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-quota-eng', this)">▲ โควตากิจกรรม
-                                K-Engineering </button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-quota-eng', this)">▲ โควตากิจกรรม K-Engineering </button>
                             <div id="detail-quota-eng" class="quota-detail-content"
                                 style="display:none; padding: 15px; background: #fff5f5; border-left: 4px solid #800000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -292,8 +300,7 @@
                         </div>
 
                         <div class="sub-group">
-                            <button class="sub-btn" onclick="toggleDetail('detail-quota-one', this)">▲ โควตา KMITL
-                                One</button>
+                            <button class="sub-btn" onclick="toggleDetail('detail-quota-one', this)">▲ โควตา KMITL One</button>
                             <div id="detail-quota-one" class="quota-detail-content"
                                 style="display:none; padding: 15px; background: #fff5f5; border-left: 4px solid #800000;">
                                 <strong>คุณสมบัติเฉพาะ:</strong>
@@ -354,9 +361,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="round-image">
+        <div class="round-image hide" id="target-image">
             <img id="display-img" src="assets/Admission1.png" alt="Admission Detail">
         </div>
 
@@ -436,7 +442,42 @@
                 btn.innerText = btn.innerText.replace('▼', '▲');
             }
         }
-        
+        function hideImage() {
+            const imgBox = document.querySelector('.round-image');
+            if (imgBox) {
+                imgBox.style.display = 'none'; // สั่งปิดการแสดงผลทันที
+            }
+        }
+    </script>
+    <script>
+        function removeImage() {
+            // เลือกกล่องรูปภาพที่มีคลาส .round-image
+            const imageElement = document.querySelector('.round-image');
+
+            // ถ้าเจอรูป ให้ลบทิ้งไปจากหน้าเว็บทันที
+            if (imageElement) {
+                imageElement.remove();
+            }
+        }
+        window.onload = function () {
+            // 1. สั่งให้รายละเอียดทุกอันปิดตัวลง
+            const allDetails = document.querySelectorAll('.detail-content'); // เปลี่ยน Class ให้ตรงกับของคุณ
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+
+            // 2. ถ้ามีปุ่มไหนที่มี Class 'active' หรือ 'open' ให้เอาออก
+            const activeButtons = document.querySelectorAll('.sub-btn.active');
+            activeButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // 3. จัดการรูปภาพ (ถ้าต้องการให้หายไปตั้งแต่เริ่มรีเฟรช)
+            const imgBox = document.querySelector('.round-image');
+            if (imgBox) {
+                imgBox.classList.add('hide'); // หรือใช้ .remove() ถ้าไม่ต้องการให้มีอยู่เลย
+            }
+        };
     </script>
 </body>
 
