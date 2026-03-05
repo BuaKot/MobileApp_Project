@@ -393,8 +393,7 @@
     </footer>
 
     <script>
-        // ฟังก์ชันสลับรอบการสมัคร
-        // รวมเป็นฟังก์ชันเดียว และจัดการเรื่องการสลับรูป/สถานะให้ครบ
+
         function switchRound(round, event) {
             const imgElement = document.getElementById('display-img');
             const images = {
@@ -403,15 +402,14 @@
                 'admission': 'assets/Admission1.png'
             };
 
-            // 1. ปิดรายละเอียดที่เปิดค้างไว้ทั้งหมด และเปลี่ยนลูกศรกลับเป็น ▲
+            
             document.querySelectorAll('.quota-detail-content').forEach(d => d.style.display = 'none');
             document.querySelectorAll('.sub-btn').forEach(b => {
                 b.innerText = b.innerText.replace('▼', '▲');
             });
 
-            // 2. >>> แก้ไข: ลบคำสั่งจัดการคลาส 'hide' และ 'expanded' ออกเพื่อให้รูปคงอยู่ตลอด <<<
 
-            // 3. เปลี่ยนรูปพร้อม Effect Fade (หากต้องการให้รูปเดิมค้างไว้เฉยๆ ก็ตัดส่วนนี้ออกได้ครับ)
+            
             if (imgElement) {
                 imgElement.style.opacity = 0;
                 setTimeout(() => {
@@ -420,29 +418,27 @@
                 }, 200);
             }
 
-            // 4. จัดการปุ่มหลัก (Active Class)
+            
             document.querySelectorAll('.main-round-btn').forEach(btn => btn.classList.remove('active'));
             if (event) event.currentTarget.classList.add('active');
 
-            // 5. สลับการแสดงผลเมนูย่อย (Sub-projects)
+            
             document.querySelectorAll('.sub-projects').forEach(el => el.classList.remove('show'));
             const targetSub = document.getElementById('sub-' + round);
             if (targetSub) targetSub.classList.add('show');
         }
 
-        // ฟังก์ชันเปิด/ปิดรายละเอียดโครงการย่อย
+        
         function toggleDetail(detailId, btn) {
             const detail = document.getElementById(detailId);
             const isHidden = (detail.style.display === "none" || detail.style.display === "");
 
             if (isHidden) {
-                // --- จังหวะเปิดรายละเอียด ---
+                
                 detail.style.display = "block";
                 btn.innerText = btn.innerText.replace('▲', '▼');
-
-                // >>> แก้ไข: ลบคำสั่งซ่อนรูปภาพ (hide/expanded) ออก เพื่อให้รูปอยู่ทางขวาเหมือนเดิม <<<
+                
             } else {
-                // --- จังหวะปิดรายละเอียด ---
                 detail.style.display = "none";
                 btn.innerText = btn.innerText.replace('▼', '▲');
             }
@@ -450,37 +446,36 @@
         function hideImage() {
             const imgBox = document.querySelector('.round-image');
             if (imgBox) {
-                imgBox.style.display = 'none'; // สั่งปิดการแสดงผลทันที
+                imgBox.style.display = 'none'; 
             }
         }
     </script>
     <script>
         function removeImage() {
-            // เลือกกล่องรูปภาพที่มีคลาส .round-image
+            
             const imageElement = document.querySelector('.round-image');
 
-            // ถ้าเจอรูป ให้ลบทิ้งไปจากหน้าเว็บทันที
             if (imageElement) {
                 imageElement.remove();
             }
         }
         window.onload = function () {
-            // 1. สั่งให้รายละเอียดทุกอันปิดตัวลง
-            const allDetails = document.querySelectorAll('.detail-content'); // เปลี่ยน Class ให้ตรงกับของคุณ
+            
+            const allDetails = document.querySelectorAll('.detail-content'); 
             allDetails.forEach(detail => {
                 detail.style.display = 'none';
             });
 
-            // 2. ถ้ามีปุ่มไหนที่มี Class 'active' หรือ 'open' ให้เอาออก
+            
             const activeButtons = document.querySelectorAll('.sub-btn.active');
             activeButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // 3. จัดการรูปภาพ (ถ้าต้องการให้หายไปตั้งแต่เริ่มรีเฟรช)
+            
             const imgBox = document.querySelector('.round-image');
             if (imgBox) {
-                imgBox.classList.add('hide'); // หรือใช้ .remove() ถ้าไม่ต้องการให้มีอยู่เลย
+                imgBox.classList.add('hide'); 
             }
         };
     </script>
