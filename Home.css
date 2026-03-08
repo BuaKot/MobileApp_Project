@@ -425,7 +425,6 @@ nav ul li:hover::after {
   background-repeat: no-repeat;
 }
 
-
 /* =========================
    RESPONSIVE - TABLET
 ========================= */
@@ -450,6 +449,28 @@ nav ul li:hover::after {
   .container {
     width: 90%;
   }
+
+  /* Detail section */
+  .detail-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .detail-box img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .detail-text {
+    border-left: none;
+    border-top: 3px solid #4d1a1a;
+    padding-left: 0;
+    padding-top: 20px;
+    text-align: center;
+  }
+
 }
 
 
@@ -519,6 +540,26 @@ nav ul li:hover::after {
   .footer-logo {
     width: 150px;
   }
+
+  /* Detail section */
+  .detail-box {
+    width: 95%;
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .detail-text h3 {
+    font-size: 20px;
+  }
+
+  .detail-text p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+}
+
+
 /* =========================
    RESPONSIVE - SMALL MOBILE
 ========================= */
@@ -537,6 +578,19 @@ nav ul li:hover::after {
     font-size: 14px;
     line-height: 1.6;
   }
-}
-}
 
+  /* Detail section */
+  .detail-box {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .detail-text h3 {
+    font-size: 18px;
+  }
+
+  .detail-text p {
+    font-size: 14px;
+  }
+
+}
