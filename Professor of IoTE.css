@@ -253,41 +253,38 @@ nav ul li:hover::after {
 
 .faculty-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    /* หัวใจสำคัญ: ใช้ auto-fit ให้มันปรับตามพื้นที่ว่าง */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 20px;                             
     padding: 20px;
-    max-width: 1200px; 
+    max-width: 1200px;                    
     margin: 0 auto;                     
 }
-
 
 .faculty-card {
     background: white;
     border: 1px solid #ddd;
     border-bottom: 4px solid #790d10;    
     border-radius: 5px;
-    cursor: pointer;
     overflow: hidden;                      
     text-align: center;
     transition: 0.3s;
-}
-
-.faculty-card:hover {
-    transform: translateY(-5px);           
+    /* แนะนำให้เพิ่มความสูงคงที่ หรือปล่อยเป็น auto เพื่อให้ข้อความไม่เบียด */
+    display: flex;
+    flex-direction: column;
 }
 
 .faculty-image img {
     width: 100%;                           
-    height: 250px;                         
-    object-fit: cover;                     
+    height: 300px; /* ปรับความสูงให้สมดุล */
+    object-fit: cover; /* ตัดรูปให้พอดีกรอบ ไม่เบี้ยว */
 }
 
 .faculty-info {
-    padding: 10px;
+    padding: 15px;
     font-size: 14px;
+    flex-grow: 1;
 }
-
-
 
 
 /* =========================
@@ -339,3 +336,4 @@ nav ul li:hover::after {
     height: 200px; /* ลดความสูงรูปบนมือถือเล็กน้อย */
   }
 }
+
