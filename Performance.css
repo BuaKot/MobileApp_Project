@@ -54,7 +54,6 @@ body {
   font-size: 14px;
   text-align: right;
 }
-
 /* =========================
    NAVIGATION
 ========================= */
@@ -74,12 +73,10 @@ nav ul {
   gap: 90px;
   flex-wrap: wrap;
 }
-
 nav ul li a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none; 
+    color: white;          
 }
-
 nav ul li {
   color: white;
   cursor: pointer;
@@ -88,7 +85,7 @@ nav ul li {
   font-size: 18px;
   letter-spacing: 1px;
   transition: 0.3s ease;
-
+  
 }
 
 nav ul li:hover {
@@ -111,26 +108,26 @@ nav ul li:hover::after {
 }
 
 .dropdown-content {
-  background-color: #ffffff;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+    background-color: #ffffff;    
+    min-width: 250px;            
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+    border-radius: 8px;        
 }
 
 
 .dropdown-content a {
-  color: #333333 !important;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  font-size: 14px;
-  transition: 0.3s;
+    color: #333333 !important;   
+    padding: 12px 16px;
+    text-decoration: none;        
+    display: block;
+    text-align: left;            
+    font-size: 14px;             
+    transition: 0.3s;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
-  color: #990000 !important;
+    background-color: #f1f1f1;    
+    color: #990000 !important;   
 }
 
 .dropdown-content {
@@ -153,9 +150,9 @@ nav ul li:hover::after {
 .dropdown-content div {
   padding: 14px 22px;
   font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  letter-spacing: 0.3px;
+  font-weight: 600;          
+  color: #111111;           
+  letter-spacing: 0.3px;     
   transition: all 0.25s ease;
   cursor: pointer;
   border-left: 4px solid transparent;
@@ -164,7 +161,7 @@ nav ul li:hover::after {
 .dropdown-content div:hover {
   background: #f3f3f3;
   border-left: 4px solid #8B0000;
-  color: #000000;
+  color: #000000;            
   padding-left: 28px;
 }
 
