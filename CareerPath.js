@@ -58,11 +58,11 @@ const careerData = [
 const grid = document.getElementById('topics-grid');
 const content = document.getElementById('detail-content');
 
-// ฟังก์ชันเริ่มการทำงาน
+// Initialization function
 function init() {
     careerData.forEach((item, index) => {
         const card = document.createElement('div');
-        // กำหนดให้การ์ดแรกเป็น active ตั้งแต่เริ่ม
+        // Set the first card as active by default
         card.className = `career-card ${index === 0 ? 'active' : ''}`;
         card.innerHTML = `
             <h3>${item.title}</h3>
@@ -71,19 +71,19 @@ function init() {
         card.onclick = () => showDetail(item, card);
         grid.appendChild(card);
         
-        // แสดงรายละเอียดของใบแรกสุด
+        // Show the first item's detail initially
         if(index === 0) renderDetail(item);
     });
 }
 
-// ฟังก์ชันสลับการเลือกการ์ด
+// Function for switching selected card
 function showDetail(item, element) {
     document.querySelectorAll('.career-card').forEach(c => c.classList.remove('active'));
     element.classList.add('active');
     renderDetail(item);
 }
 
-// ฟังก์ชันวาดเนื้อหาด้านล่าง
+// Function for rendering the detail section
 function renderDetail(item) {
     content.innerHTML = `
         <div class="detail-content-wrapper">
@@ -127,5 +127,33 @@ function renderDetail(item) {
     `;
 }
 
-// เรียกใช้งาน
+// run program
 init();
+
+document.addEventListener("DOMContentLoaded", function() {
+    // หาเมนูที่มี Dropdown ทั้งหมด
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            // ปิดเมนูอื่นๆ ที่ไม่ได้กด (ถ้ามีอันอื่นเปิดอยู่)
+            dropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('active');
+                }
+            });
+            
+            // สลับสถานะ เปิด/ปิด สำหรับเมนูที่กด
+            this.classList.toggle('active');
+        });
+    });
+
+    // ทริคเพิ่มเติม: ถ้าใช้นิ้วจิ้มที่อื่นบนหน้าจอ ให้ปิด Dropdown อัตโนมัติ
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+});
