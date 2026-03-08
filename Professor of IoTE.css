@@ -174,11 +174,58 @@ nav ul li:hover::after {
 }
 
 /* =========================
+   DROPDOWN - TEXT DARKER
+========================= */
+
+.dropdown-content {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px 0;
+  min-width: 260px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown-content div {
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 600;         
+  color: #111111;            
+  letter-spacing: 0.3px;    
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+}
+
+.dropdown-content div:hover {
+  background: #f3f3f3;
+  border-left: 4px solid #8B0000;
+  color: #000000;            
+  padding-left: 28px;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+
+/* =========================
    Show section
 ========================= */
 .show-section {
 
-    background-image: url('image/back2.png'); 
+    background-image: url('image/back3.png'); 
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -211,10 +258,9 @@ nav ul li:hover::after {
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px;                             
     padding: 20px;
-    max-width: 1000px;                    
-    margin: 0 auto;                     
+    max-width: 1000px;                     
+    margin: 0 auto;                       
 }
-
 
 .faculty-card {
     background: white;
@@ -222,7 +268,7 @@ nav ul li:hover::after {
     border-bottom: 4px solid #790d10;    
     border-radius: 5px;
     cursor: pointer;
-    overflow: hidden;                      
+    overflow: hidden;                    
     text-align: center;
     transition: 0.3s;
 }
@@ -358,3 +404,4 @@ nav ul li:hover::after {
   }
 }
 }
+
