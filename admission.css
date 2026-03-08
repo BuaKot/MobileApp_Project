@@ -31,7 +31,6 @@ body {
 .top-bar {
     display: flex;
     margin: 0;
-    /* ลบ margin ออก */
     justify-content: flex-end;
     padding-top: 20px;
     padding-bottom: 5px;
@@ -65,7 +64,6 @@ body {
 }
 
 .header-title h1 {
-    /* แก้จาก h1 เป็น h2 ให้ตรงกับ HTML */
     font-family: 'Inria Serif', serif;
     font-size: 38px;
     font-weight: 700;
@@ -81,29 +79,16 @@ body {
 /* =========================
    NAVIGATION
 ========================= */
-.sticky-top {
-    position: fixed;
-    /* หรือใช้ sticky ก็ได้ครับ */
-    top: 0;
-    left: 0;
-    /* เพิ่มเพื่อให้ชิดขอบซ้ายสุด */
-    width: 100%;
-    /* ให้เต็มหน้าจอ */
-    z-index: 1000;
-    */
-}
 
-/* ลบ position: sticky หรือ fixed เดิมออกจาก nav */
 nav {
     background: linear-gradient(90deg, #5c0000, #8B0000, #5c0000);
     padding: 10px 0;
-    padding-top: 2px;    /* ลดระยะห่างด้านบนลง */
-    padding-bottom: 20px; /* เพิ่มหรือคงระยะห่างด้านล่างไว้ตามความเหมาะสม */
+    padding-top: 2px;
+    padding-bottom: 20px;
     display: flex;
     top: 0;
     width: 100%;
     z-index: 1000;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -151,13 +136,10 @@ nav ul li:hover::after {
     width: 100%;
 }
 
-.dropdown-content {
-    background-color: #ffffff;
-    min-width: 250px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
 
+.dropdown {
+    position: relative;
+}
 
 .dropdown-content a {
     color: #333333 !important;
@@ -179,12 +161,16 @@ nav ul li:hover::after {
     top: 55px;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
+
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 12px 0;
+
     min-width: 260px;
+    padding: 12px 0;
+    border-radius: 12px;
+
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -210,9 +196,7 @@ nav ul li:hover::after {
 }
 
 .dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    display: block !important;
 }
 
 /* =========================
@@ -373,10 +357,8 @@ nav ul li:hover::after {
 }
 
 .round-image img {
-    width: 100% !important;
-    height: auto !important;
-    box-shadow: 15px 15px 0px #e0e0e0;
-    /* เงาสี่เหลี่ยมตามที่คุณต้องการ */
+    width: 150px;
+    height: 150px;
 }
 
 /* =========================
@@ -387,6 +369,8 @@ nav ul li:hover::after {
     color: white;
     padding: 40px 0;
     text-align: center;
+    width: 100%;
+    margin-top: 50px;
 }
 
 /* =========================
@@ -413,13 +397,6 @@ nav ul li:hover::after {
     nav ul {
         gap: 30px;
     }
-}
-
-/*ลบสไตล์เดิมของ .footer ถ้ามี*/
-.footer {
-    width: 100%;
-    margin-top: 50px;
-    /* เว้นระยะจากเนื้อหาด้านบน */
 }
 
 /* แถบสีแดงสำหรับลิงก์ */
@@ -521,67 +498,176 @@ nav ul li:hover::after {
 /* =========================
    MOBILE NAVBAR
 ========================= */
-
-@media (max-width:768px){
-
-   nav ul{
+@media (max-width:768px) {
+    .main-header {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 12px;       /* เดิม 25px */
-        padding: 10px 0; /* ลดความสูง */
+        padding-bottom: 0;
     }
 
-    nav ul li{
-        font-size: 18px; /* ลดจาก 20 */
-    }
-
-    nav ul li a{
-        padding: 6px 0; /* ลดช่องว่าง */
-    }
-
-    /* dropdown */
-    .dropdown-content{
-        position: static;
-        transform: none;
-        box-shadow: none;
-        background: #8B0000;
-        opacity: 1;
-        visibility: visible;
-        display: none;
-    }
-
-    .dropdown-content a{
-        color: white;
-        padding: 10px 0;
-        display: block;
-    }
-
-    .dropdown:hover .dropdown-content{
-        display: block;
-    }
-    .logo-bar{
+    .logo-bar {
+        order: 1;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 12px;
+        padding: 20px 16px 10px;
+        background: #8B0000;
+    }
+
+
+    .logo {
+        height: 80px;
+        width: auto;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px 20px;
         gap: 15px;
-        padding: 20px;
     }
 
-    .logo{
-        height: 70px;
-        max-width: 90%;
+    .header-left {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .header-title h1{
-        font-size: 26px;
+    .header-title {
+        margin-bottom: 0;
+    }
+
+    .header-title h1 {
+        font-family: 'Inria Serif', serif;
+        font-weight: 700;
+        font-size: 18px;
         line-height: 1.3;
-        padding: 0 10px;
+        text-align: center;
+        color: white;
     }
 
-    .top-bar{
+    .header-right {
+        position: static;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .top-bar {
+        order: 2;
+        display: flex;
         justify-content: center;
-        padding-right: 0;
+        align-items: center;
+        padding: 8px 16px 20px;
+        padding-top: 15px;
+        background: #8B0000;
     }
 
+    .top-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
 
+    .top-right span {
+        font-size: 14px;
+        color: #f4f4f4;
+    }
+
+    nav {
+        padding-top: 0;        /* ปรับเป็น 0 เพื่อให้ชิดขอบบน */
+        padding-bottom: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav ul li {
+        font-size: 16px;
+    }
+
+    .hero {
+        height: 450px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    
+
+ .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: absolute !important;
+        left: 50% !important;
+        top: 100% !important;
+        transform: translateX(-50%) !important;
+        width: 88% !important;
+        min-width: 240px !important;
+
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+        padding: 4px 0 !important;
+        z-index: 9999 !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: opacity 0.2s ease, visibility 0.2s ease !important;
+        display: block !important;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown.open .dropdown-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* ไม่มีเส้นคั่น */
+    .dropdown-content a,
+    .dropdown-content div {
+        color: #222 !important;
+        padding: 16px 22px !important;
+        font-size: 15px !important;
+        font-weight: 400 !important;
+        text-align: left !important;
+        display: block !important;
+        border: none !important;
+        transition: background 0.15s !important;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content div:hover {
+        background: #f5f5f5 !important;
+        color: #8B0000 !important;
+    }
+
+    /* --- ส่วนอื่นๆ --- */
+    .hero h2 { font-size: 22px; }
+    .section-title { font-size: 18px; padding: 10px 18px; }
+    .content-box { font-size: 14px; line-height: 1.6; }
+    .detail-box { padding: 20px; border-radius: 18px; }
+    .detail-text h3 { font-size: 18px; }
+    .detail-text p { font-size: 14px; }
+
+    .footer-guide-bar .container { flex-direction: column; gap: 20px; }
+    .v-line { display: none; }
+    .guide-link { font-size: 14px; }
+}
+
+.welcome-button:hover {
+    background-color: #8B0000;
+    color: white;
+    transform: translateY(-2px);
 }
