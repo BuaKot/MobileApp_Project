@@ -293,7 +293,25 @@ nav ul li:hover::after {
 @media (max-width: 1024px) {
   .header-top { padding: 30px 40px; }
   nav ul { gap: 40px; }
-  
+  .header-top {
+    padding: 30px 40px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  .hero {
+    height: 280px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .container {
+    width: 90%;
+  }
   /* ปรับ Grid อาจารย์ให้เหลือ 2 คอลัมน์บน Tablet */
   .faculty-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -307,14 +325,65 @@ nav ul li:hover::after {
 @media (max-width: 768px) {
   .header-top {
     flex-direction: column;
-    padding: 20px;
-  }
-  
-  nav ul {
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
     gap: 15px;
-    padding: 10px;
   }
 
+  .header-left {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo {
+    height: 80px;
+    transform: none;
+  }
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .header-right {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  nav {
+    padding: 15px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav ul li {
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 40px auto;
+  }
+
+  .content-box {
+    padding: 25px;
+  }
+
+  .footer-logo {
+    width: 150px;
+  }
   /* ปรับ Grid อาจารย์ให้เป็น 1 คอลัมน์บนมือถือ */
   .faculty-grid {
     grid-template-columns: 1fr;
@@ -341,5 +410,6 @@ nav ul li:hover::after {
   }
 
 }
+
 
 
