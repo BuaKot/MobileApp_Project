@@ -291,127 +291,51 @@ nav ul li:hover::after {
 
 
 /* =========================
-   RESPONSIVE - TABLET
+   RESPONSIVE - TABLET (Max 1024px)
 ========================= */
 @media (max-width: 1024px) {
-
-  .header-top {
-    padding: 30px 40px;
-  }
-
-  nav ul {
-    gap: 40px;
-  }
-
-  .hero {
-    height: 280px;
-  }
-
-  .hero h2 {
-    font-size: 36px;
-  }
-
-  .container {
-    width: 90%;
+  .header-top { padding: 30px 40px; }
+  nav ul { gap: 40px; }
+  
+  /* ปรับ Grid อาจารย์ให้เหลือ 2 คอลัมน์บน Tablet */
+  .faculty-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
   }
 }
 
 /* =========================
-   RESPONSIVE - MOBILE
+   RESPONSIVE - MOBILE (Max 768px)
 ========================= */
 @media (max-width: 768px) {
-
   .header-top {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 25px 20px;
-    gap: 15px;
+    padding: 20px;
   }
-
-  .header-left {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .logo {
-    height: 80px;
-    transform: none;
-  }
-
-  .header-title h1 {
-    font-size: 18px;
-  }
-
-  .header-right {
-    position: static;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  nav {
-    padding: 15px 0;
-  }
-
+  
   nav ul {
-    flex-direction: column;
-    gap: 18px;
+    gap: 15px;
+    padding: 10px;
   }
 
-  nav ul li {
-    font-size: 16px;
+  /* ปรับ Grid อาจารย์ให้เป็น 1 คอลัมน์บนมือถือ */
+  .faculty-grid {
+    grid-template-columns: 1fr;
+    max-width: 90%;
   }
 
-  .hero {
-    height: 220px;
-  }
-
-  .hero h2 {
-    font-size: 28px;
-  }
-
-  .container {
-    width: 92%;
-    margin: 40px auto;
-  }
-
-  .content-box {
-    padding: 25px;
-  }
-
-  .footer-logo {
-    width: 150px;
-  }
-   .faculty-grid {
-        grid-template-columns: repeat(2, 1fr); /* บนแท็บเล็ตแสดง 2 คอลัมน์ */
-   }
-/* =========================
-   RESPONSIVE - SMALL MOBILE
-========================= */
-@media (max-width: 480px) {
-
-  .hero h2 {
-    font-size: 22px;
-  }
-
-  .section-title {
-    font-size: 18px;
-    padding: 10px 18px;
-  }
-
-  .content-box {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-   .faculty-grid {
-        grid-template-columns: 1fr; /* บนมือถือแสดง 1 คอลัมน์เต็มหน้าจอ */
-    }
-    .hero h2 {
-        font-size: 22px;
-    }
+  .show-container h1 { font-size: 2rem; }
+  .show-container h2 { font-size: 1.5rem; }
 }
 
-
-
-
-
+/* =========================
+   RESPONSIVE - SMALL MOBILE (Max 480px)
+========================= */
+@media (max-width: 480px) {
+  .header-title h1 { font-size: 14px; }
+  .faculty-card { font-size: 12px; }
+  
+  .faculty-image img {
+    height: 200px; /* ลดความสูงรูปบนมือถือเล็กน้อย */
+  }
+}
