@@ -12,11 +12,6 @@ body {
   background: #f6f6f6;
   color: #333;
 }
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
 
 /* =========================
    HEADER
@@ -641,5 +636,6 @@ nav ul li {
         grid-template-columns: 1fr;
     }
 }
+
 
 
