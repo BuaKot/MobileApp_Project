@@ -17,9 +17,6 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f6f6f6;
     color: #333;
-
-    /* ป้องกัน hero ชน navbar */
-    padding-top: 70px;
 }
 
 /* =========================
@@ -82,8 +79,7 @@ nav {
     display: flex;
     justify-content: center;
 
-    /* ทำให้ nav ลอย */
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
