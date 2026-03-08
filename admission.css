@@ -657,28 +657,6 @@ nav ul li:hover::after {
         color: #8B0000 !important;
     }
 
-    /* บังคับซ่อน เพื่อให้ JS เป็นตัวสั่งเปิดแทน */
-
-    .dropdown.active .dropdown-content {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0);
-        display: block;
-    }
-    .dropdown.active .dropdown-content {
-        display: block;
-        margin-top: 10px;
-    }
-
-    .dropdown-content div {
-        color: #ffffff; /* ปรับสีตัวอักษรให้เข้ากับพื้นหลังเข้มบนมือถือ */
-        border-left: 2px solid var(--maroon);
-    }
-    
-    /* สัญลักษณ์บอกว่ากดลงมาได้ (Optional) */
-    nav ul li.dropdown::after {
-        font-size: 12px;
-    }
 
     /* --- ส่วนอื่นๆ --- */
     .hero h2 {
@@ -727,3 +705,4 @@ nav ul li:hover::after {
     color: white;
     transform: translateY(-2px);
 }
+
