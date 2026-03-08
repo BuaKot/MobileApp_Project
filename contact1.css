@@ -241,7 +241,7 @@ nav ul li:hover::after {
 /* ================= CONTACT SECTION ================= */
 .contact-section {
     background: #ffffff;
-    padding: 40px 0 60px;   /* ไม่ให้เว้นบนเยอะ */
+    padding: 40px 0 60px;   
 }
 
 .contact-container {
@@ -286,28 +286,117 @@ footer {
     padding: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 992px) {
 
-    .main .container {
-        flex-direction: column;
-        text-align: center;
-    }
+  .main .container {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .image {
-        margin-top: 30px;
-    }
+  .image {
+    margin-top: 30px;
+  }
 
-    .contact-container {
-        flex-direction: column;
-        gap: 40px;
-        text-align: center;
-    }
+  .contact-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
 
-    nav {
-        gap: 30px;
-        flex-wrap: wrap;
-    }
+  nav {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+}
+
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+    gap: 15px;
+  }
+
+  .header-left {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo {
+    height: 80px;
+    transform: none;
+  }
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .header-right {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  nav {
+    padding: 15px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav ul li {
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 40px auto;
+  }
+
+  .content-box {
+    padding: 25px;
+  }
+
+  .footer-logo {
+    width: 150px;
+  }
+
+}
+
+
+/* ================= RESPONSIVE - SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    padding: 10px 18px;
+  }
+
+  .content-box {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
 }
 
 .footer {
@@ -317,12 +406,12 @@ footer {
     margin-top: 20px;
 }
 
-/* ทำ overlay มืด */
+/* overlay dark */
 .footer::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65); /* ความมืด */
+    background: rgba(0, 0, 0, 0.65); 
 }
 
 .footer-overlay {
