@@ -17,6 +17,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f6f6f6;
     color: #333;
+
+    /* ป้องกัน hero ชน navbar */
+    padding-top: 70px;
 }
 
 /* =========================
@@ -59,7 +62,6 @@ body {
 
 .logo {
     height: 100px;
-    width: auto;
 }
 
 .header-title h1 {
@@ -79,6 +81,12 @@ nav {
     padding: 12px 0;
     display: flex;
     justify-content: center;
+
+    /* ทำให้ nav ลอย */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 nav ul {
@@ -187,6 +195,16 @@ nav ul li:hover::after {
     padding: 30px;
     max-width: 800px;
     text-align: center;
+    border-radius: 6px;
+}
+
+.hero-box h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.hero-box p{
+    line-height:1.7;
 }
 
 .white-line {
