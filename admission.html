@@ -490,33 +490,28 @@
         };
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // หาเมนูที่มี Dropdown ทั้งหมด
-            const dropdowns = document.querySelectorAll('.dropdown');
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            document.querySelectorAll('li.dropdown').forEach(function (dropdown) {
 
-            dropdowns.forEach(dropdown => {
                 dropdown.addEventListener('click', function (e) {
-                    // ปิดเมนูอื่นๆ ที่ไม่ได้กด (ถ้ามีอันอื่นเปิดอยู่)
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
+                    e.stopPropagation();
+                    const isOpen = dropdown.classList.contains('open');
 
-                    // สลับสถานะ เปิด/ปิด สำหรับเมนูที่กด
-                    this.classList.toggle('active');
+                    // ปิดทุก dropdown ก่อน
+                    document.querySelectorAll('li.dropdown').forEach(d => d.classList.remove('open'));
+
+                    // ถ้ายังไม่เปิด ให้เปิด
+                    if (!isOpen) {
+                        dropdown.classList.add('open');
+                    }
                 });
             });
 
-            // ทริคเพิ่มเติม: ถ้าใช้นิ้วจิ้มที่อื่นบนหน้าจอ ให้ปิด Dropdown อัตโนมัติ
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('.dropdown')) {
-                    dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                }
+            // แตะที่อื่นแล้วปิดทั้งหมด
+            document.addEventListener('click', function () {
+                document.querySelectorAll('li.dropdown').forEach(d => d.classList.remove('open'));
             });
-        });
+        }
     </script>
 </body>
 
