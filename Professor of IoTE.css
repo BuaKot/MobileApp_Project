@@ -289,24 +289,40 @@ nav ul li:hover::after {
 
 
 
+
 /* =========================
    RESPONSIVE - TABLET
 ========================= */
 @media (max-width: 1024px) {
-  .header-top { padding: 30px 40px; }
-  nav ul { gap: 40px; }
-  .hero { height: 280px; }
-  .hero h2 { font-size: 36px; }
-  .container { width: 90%; }
-  
-  /* เพิ่มให้ Grid ปรับตามจอ */
-  .faculty-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .header-top {
+    padding: 30px 40px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  .hero {
+    height: 280px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .container {
+    width: 90%;
+  }
 }
+
+
 
 /* =========================
    RESPONSIVE - MOBILE
 ========================= */
 @media (max-width: 768px) {
+
   .header-top {
     flex-direction: column;
     align-items: center;
@@ -314,30 +330,79 @@ nav ul li:hover::after {
     padding: 25px 20px;
     gap: 15px;
   }
-  .header-left { flex-direction: column; gap: 15px; }
-  .logo { height: 80px; transform: none; }
-  .header-title h1 { font-size: 18px; }
-  .header-right { position: static; margin-top: 10px; text-align: center; }
-  
-  nav { padding: 15px 0; }
-  nav ul { flex-direction: column; gap: 18px; }
-  nav ul li { font-size: 16px; }
-  
-  .hero { height: 220px; }
-  .hero h2 { font-size: 28px; }
-  .container { width: 92%; margin: 40px auto; }
-  .content-box { padding: 25px; }
-  .footer-logo { width: 150px; }
-  
-  /* ปรับ Grid ให้เรียง 1 คอลัมน์บนมือถือ */
-  .faculty-grid { grid-template-columns: 1fr; }
-}
 
+  .header-left {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo {
+    height: 80px;
+    transform: none;
+  }
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .header-right {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  nav {
+    padding: 15px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav ul li {
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 40px auto;
+  }
+
+  .content-box {
+    padding: 25px;
+  }
+
+  .footer-logo {
+    width: 150px;
+  }
 /* =========================
    RESPONSIVE - SMALL MOBILE
 ========================= */
 @media (max-width: 480px) {
-  .hero h2 { font-size: 22px; }
-  .section-title { font-size: 18px; padding: 10px 18px; }
-  .content-box { font-size: 14px; line-height: 1.6; }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    padding: 10px 18px;
+  }
+
+  .content-box {
+    font-size: 14px;
+    line-height: 1.6;
+  }
 }
+}
+
+
