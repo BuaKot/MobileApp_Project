@@ -631,6 +631,14 @@ nav ul li:hover::after {
         visibility: visible;
     }
 
+    .dropdown.active .dropdown-content {
+        display: block !important;
+    }
+
+    .dropdown {
+        outline: none;
+    }
+
     .dropdown:hover .dropdown-content,
     .dropdown.open .dropdown-content {
         opacity: 1 !important;
@@ -705,4 +713,3 @@ nav ul li:hover::after {
     color: white;
     transform: translateY(-2px);
 }
-

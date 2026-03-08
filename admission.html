@@ -490,29 +490,31 @@
         };
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener("DOMContentLoaded", function () {
+            // หาเมนูที่มี Dropdown ทั้งหมด
             const dropdowns = document.querySelectorAll('.dropdown');
 
             dropdowns.forEach(dropdown => {
                 dropdown.addEventListener('click', function (e) {
-                    // ถ้าเป็นหน้าจอเล็ก ให้หยุดการลิงก์ไปหน้าอื่นชั่วคราวเพื่อเปิดเมนูก่อน
-                    if (window.innerWidth <= 768) {
-                        // ตรวจสอบว่าคลิกที่ตัวเมนูหลัก (li) ไม่ใช่ตัวข้างใน dropdown
-                        if (e.target.parentElement === dropdown || e.target === dropdown) {
-                            e.preventDefault();
-                            this.classList.toggle('active');
+                    // ปิดเมนูอื่นๆ ที่ไม่ได้กด (ถ้ามีอันอื่นเปิดอยู่)
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
                         }
-                    }
+                    });
+
+                    // สลับสถานะ เปิด/ปิด สำหรับเมนูที่กด
+                    this.classList.toggle('active');
                 });
             });
 
-            // ปิด dropdown เมื่อคลิกที่อื่นข้างนอกเมนู
-            window.addEventListener('click', function (e) {
-                dropdowns.forEach(dropdown => {
-                    if (!dropdown.contains(e.target)) {
+            // ทริคเพิ่มเติม: ถ้าใช้นิ้วจิ้มที่อื่นบนหน้าจอ ให้ปิด Dropdown อัตโนมัติ
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdowns.forEach(dropdown => {
                         dropdown.classList.remove('active');
-                    }
-                });
+                    });
+                }
             });
         });
     </script>
