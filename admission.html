@@ -48,18 +48,18 @@
                     <a href="contact.html">IoT System and Information</a>
                     <a href="contact1.html">Dual Degree</a>
                 </div>
-                </li>
+            </li>
 
-                <li class="dropdown" tabindex="0">
-                    Faculty
-                    <div class="dropdown-content">
-                        <a href="Professor of IoTE.html">Professor of IoT System and Information</a>
-                        <a href="Professor of PhysIoTE.html">Professor of Industrial Physics</a>
-                    </div>
-                </li>
-                <li><a href="performance.html">Performance</a></li>
-                <li><a href="CareerPath.html">CareerPath</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
+            <li class="dropdown" tabindex="0">
+                Faculty
+                <div class="dropdown-content">
+                    <a href="Professor of IoTE.html">Professor of IoT System and Information</a>
+                    <a href="Professor of PhysIoTE.html">Professor of Industrial Physics</a>
+                </div>
+            </li>
+            <li><a href="performance.html">Performance</a></li>
+            <li><a href="CareerPath.html">CareerPath</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
         </ul>
     </nav>
 
@@ -488,6 +488,33 @@
                 imgBox.classList.add('hide');
             }
         };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    // ถ้าเป็นหน้าจอเล็ก ให้หยุดการลิงก์ไปหน้าอื่นชั่วคราวเพื่อเปิดเมนูก่อน
+                    if (window.innerWidth <= 768) {
+                        // ตรวจสอบว่าคลิกที่ตัวเมนูหลัก (li) ไม่ใช่ตัวข้างใน dropdown
+                        if (e.target.parentElement === dropdown || e.target === dropdown) {
+                            e.preventDefault();
+                            this.classList.toggle('active');
+                        }
+                    }
+                });
+            });
+
+            // ปิด dropdown เมื่อคลิกที่อื่นข้างนอกเมนู
+            window.addEventListener('click', function (e) {
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
