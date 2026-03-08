@@ -335,5 +335,11 @@ nav ul li:hover::after {
   .faculty-image img {
     height: 200px; /* ลดความสูงรูปบนมือถือเล็กน้อย */
   }
+     .faculty-grid {
+    grid-template-columns: 1fr;
+    max-width: 90%;
+  }
+
 }
+
 
