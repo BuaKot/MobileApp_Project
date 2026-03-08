@@ -484,55 +484,33 @@ Program Synopsis
 /* =========================
    RESPONSIVE - TABLET
 ========================= */
-@media (max-width: 1024px) {
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 992px) {
 
-  .header-top {
-    padding: 30px 40px;
-  }
-
-  nav ul {
-    gap: 40px;
-  }
-
-  .hero {
-    height: 280px;
-  }
-
-  .hero h2 {
-    font-size: 36px;
-  }
-
-  .container {
-    width: 90%;
-  }
-
-  /* Detail section */
-  .detail-box {
+  .main .container {
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    padding: 30px;
   }
 
-  .detail-box img {
-    width: 100%;
-    max-width: 500px;
+  .image {
+    margin-top: 30px;
   }
 
-  .detail-text {
-    border-left: none;
-    border-top: 3px solid #4d1a1a;
-    padding-left: 0;
-    padding-top: 20px;
+  .contact-container {
+    flex-direction: column;
+    gap: 40px;
     text-align: center;
+  }
+
+  nav {
+    gap: 30px;
+    flex-wrap: wrap;
   }
 
 }
 
 
-/* =========================
-   RESPONSIVE - MOBILE
-========================= */
+/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
 
   .header-top {
@@ -553,7 +531,7 @@ Program Synopsis
     transform: none;
   }
 
-  .header-title h1 {
+  .header-title h1 { /* หากใน HTML ไม่ใช่ <h1> ให้แก้กลับเป็นคลาสเดิมนะครับ */
     font-size: 18px;
   }
 
@@ -576,13 +554,33 @@ Program Synopsis
     font-size: 16px;
   }
 
+  /* ---------------------------------------------------
+     จุดที่แก้ไขเพิ่ม เพื่อแก้ปัญหาพื้นที่สีขาวและรูปล้นจอ
+  ---------------------------------------------------- */
   .hero {
-    height: 220px;
+    height: auto; /* ปลดล็อก 220px ให้ยืดหยุ่นตามเนื้อหา เพื่อลดช่องว่างสีขาว */
+    min-height: 50px; 
   }
 
   .hero h2 {
     font-size: 28px;
   }
+
+  .program-section {
+    padding: 30px 5%; /* ลดระยะห่างด้านบนและล่างของ Section ลง */
+  }
+
+  .program-container {
+    flex-direction: column; /* ให้รูปภาพและข้อความเรียงต่อกันบนลงล่าง */
+    gap: 30px; /* ลดระยะห่างระหว่างรูปภาพกับข้อความ */
+  }
+
+  .program-image img {
+    width: 100%; /* บังคับรูปภาพไม่ให้กว้างเกินหน้าจอมือถือ */
+    height: auto;
+    border-radius: 12px;
+  }
+  /* --------------------------------------------------- */
 
   .container {
     width: 92%;
@@ -597,28 +595,37 @@ Program Synopsis
     width: 150px;
   }
 
-  /* Detail section */
-  .detail-box {
-    width: 95%;
-    padding: 25px;
-    gap: 25px;
+   /* 1. จัดตำแหน่งกล่องให้อยู่ตรงกลาง ไม่ลอย และซ่อนไว้ก่อน */
+  .dropdown-content {
+    position: static !important;
+    transform: none !important;
+    width: 90%;
+    margin: 10px auto 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 10px 0;
+    
+    /* บังคับซ่อน เพื่อให้ JS เป็นตัวสั่งเปิดแทน */
+    display: none !important; 
+    opacity: 1;
+    visibility: visible;
   }
 
-  .detail-text h3 {
-    font-size: 20px;
+  /* 2. เมื่อมีคลาส .active (ที่ JS เติมให้ตอนกด) ค่อยแสดงกล่องออกมา */
+  .dropdown.active .dropdown-content {
+    display: block !important;
   }
-
-  .detail-text p {
-    font-size: 15px;
-    line-height: 1.7;
+    
+  /* ซ่อน outline สีฟ้าๆ ที่อาจจะขึ้นมาตอนกดในบางเบราว์เซอร์ */
+  .dropdown {
+    outline: none;
   }
 
 }
 
 
-/* =========================
-   RESPONSIVE - SMALL MOBILE
-========================= */
+/* ================= RESPONSIVE - SMALL MOBILE ================= */
 @media (max-width: 480px) {
 
   .hero h2 {
@@ -635,20 +642,62 @@ Program Synopsis
     line-height: 1.6;
   }
 
-  /* Detail section */
-  .detail-box {
-    padding: 20px;
-    border-radius: 18px;
-  }
+}
 
-  .detail-text h3 {
+.footer {
+    background: url("myphoto/building.png") center/cover no-repeat;
+    position: relative;
+    color: white;
+    margin-top: 20px;
+}
+
+/* overlay dark */
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65); 
+}
+
+.footer-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 10px 10px 10px;
+    text-align: center;
+}
+
+/* โลโก้ */
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-logos img {
+    height: 80px;
+    object-fit: contain;
+}
+
+
+/* copyright */
+.footer p {
     font-size: 18px;
-  }
+    opacity: 0.9;
+}
 
-  .detail-text p {
-    font-size: 14px;
-  }
+@media (max-width: 992px) {
+    .program-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .program-image img {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 
 /* ปรับ Container ของภาพล่างสุด */
@@ -681,4 +730,5 @@ Program Synopsis
         border-radius: 8px;
     }
 }
+
 
