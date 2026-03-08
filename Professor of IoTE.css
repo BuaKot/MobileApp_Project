@@ -384,6 +384,9 @@ nav ul li:hover::after {
   .footer-logo {
     width: 150px;
   }
+   .faculty-grid {
+        grid-template-columns: repeat(2, 1fr); /* บนแท็บเล็ตแสดง 2 คอลัมน์ */
+    }
 /* =========================
    RESPONSIVE - SMALL MOBILE
 ========================= */
@@ -397,6 +400,9 @@ nav ul li:hover::after {
     font-size: 18px;
     padding: 10px 18px;
   }
+   .faculty-grid {
+        grid-template-columns: repeat(2, 1fr); /* บนแท็บเล็ตแสดง 2 คอลัมน์ */
+    }
 
   .content-box {
     font-size: 14px;
@@ -404,5 +410,6 @@ nav ul li:hover::after {
   }
 }
 }
+
 
 
