@@ -176,11 +176,14 @@ nav ul li:hover::after {
 /* =========================
    Welcome Section
 ========================= */
-.Welcome{
+.Welcome {
     background-image: url('image/welcome.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 700px;
+    background-size: cover;          
+    background-position: center;     
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 50vh;                
+    padding: 100px 20px;             
     display: flex;
     justify-content: center;
     align-items: center;
@@ -594,3 +597,4 @@ nav ul li:hover::after {
   }
 
 }
+
