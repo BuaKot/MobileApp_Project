@@ -485,255 +485,118 @@ Program Synopsis
    RESPONSIVE
 ========================= */
 
-@media (max-width: 1024px) {
-  nav ul { gap: 40px; }
-  .about-container { flex-direction: column; padding: 60px 40px; }
-  .tuition-wrapper { flex-direction: column; }
-}
 
-@media (max-width: 768px) {
 
-  .header-top {
-    flex-direction: column;
-    padding: 25px 20px;
-    text-align: center;
+.activities-grid, .curriculum-grid, .banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 20px;
-  }
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-  .header-left {
-    flex-direction: column;
-    gap: 15px;
-  }
+.activity-card, .curriculum-card, .banner-card {
+    width: 100% !important; /* ให้ขยายเต็มตาม Grid */
+    margin-top: 0 !important;
+}
 
-  .logo {
-    height: 75px;
-    transform: none;
-  }
 
-  .header-right {
-    position: static;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero {
-    height: 45vh;
-  }
-
-  .hero h1 {
-    font-size: 26px;
-  }
-
-  .hero h2 {
-    font-size: 16px;
-  }
-
-  .about-container {
-    padding: 40px 25px;
-  }
-
-  .btn-primary {
-    display: block;
+.Program-Synopsis img, .last img {
     width: 100%;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .tuition-image {
-    height: 250px;
-  }
-
-  .tuition-content {
-    text-align: center;
-    padding: 35px 25px;
-  }
-
-}
-
-@media (max-width: 480px) {
-
-  .hero {
-    height: 40vh;
-  }
-
-  .hero h1 {
-    font-size: 20px;
-  }
-
-  .hero h2 {
-    font-size: 14px;
-  }
-
+    max-width: 1000px; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 
-/* ---------- Large Tablet ---------- */
-@media (max-width: 1100px) {
-
-  .header-top {
-    padding: 30px 50px;
-  }
-
-  nav ul {
-    gap: 35px;
-  }
-
-  .curriculum-section {
-    padding: 60px 40px;
-  }
-
-  .curriculum-card {
-    padding: 35px 25px 45px 25px;
-  }
-
-}
 
 
-/* ---------- Tablet ---------- */
 @media (max-width: 992px) {
+    .header-top {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .header-title {
-    font-size: 18px;
-  }
+    .header-left {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  nav {
-    padding: 18px 0;
-  }
+    .header-right {
+        position: static;
+        text-align: center;
+        margin-top: 15px;
+    }
 
-  nav ul li {
-    font-size: 16px;
-  }
+    nav ul {
+        gap: 30px; 
+    }
 
-  .hero {
-    height: 50vh;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero h2 {
-    font-size: 18px;
-  }
-
-  .main-section {
-    padding: 70px 20px;
-  }
-
-  .about-container {
-    gap: 40px;
-  }
-
-  .curriculum-section {
-    gap: 50px;
-  }
-
-  .tuition-content {
-    padding: 40px;
-  }
-
+    .show-container h1 {
+        font-size: 2.5rem;
+    }
 }
 
 
-/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
 
-  body {
-    font-size: 14px;
-  }
+    nav ul li {
+        font-size: 16px;
+    }
 
-  nav ul li {
-    font-size: 15px;
-  }
+    .dropdown-content {
+        position: relative; 
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
 
-  .hero {
-    height: 42vh;
-    padding: 0 15px;
-  }
+    .dropdown-content a {
+        color: white !important;
+        text-align: center;
+    }
 
-  .hero h1 {
-    font-size: 24px;
-  }
+    
+    .show-container h1 {
+        font-size: 1.5rem;
+        padding: 0 15px;
+    }
 
-  .hero h2 {
-    font-size: 15px;
-  }
+    .curriculum-container h1 {
+        font-size: 36px;
+    }
 
-  .main-section {
-    padding: 50px 15px;
-  }
+    .curriculum-container h2 {
+        font-size: 20px;
+    }
 
-  .main-card {
-    border-radius: 20px;
-  }
+    /* ปรับปุ่มกิจกรรมให้เล็กลง */
+    .activity-btn {
+        min-height: 200px;
+        gap: 20px;
+    }
 
-  .about-text h2 {
-    font-size: 22px;
-  }
+    .activity-btn i {
+        font-size: 40px;
+    }
 
-  .about-text p {
-    font-size: 14px;
-  }
-
-  .curriculum-section {
-    padding: 50px 20px;
-  }
-
-  .curriculum-title {
-    font-size: 13px;
-    padding: 10px 20px;
-  }
-
-  .tuition-item {
-    max-width: 100%;
-  }
-
-  .tuition-item p {
-    font-size: 18px;
-  }
-
+    .activity-btn span {
+        font-size: 18px;
+    }
 }
 
 
-/* ---------- Small Mobile ---------- */
-@media (max-width: 480px) {
-
-  .header-title {
-    font-size: 16px;
-  }
-
-  nav ul li {
-    font-size: 14px;
-  }
-
-  .hero {
-    height: 35vh;
-  }
-
-  .hero h1 {
-    font-size: 20px;
-  }
-
-  .hero h2 {
-    font-size: 13px;
-  }
-
-  .about-text h2 {
-    font-size: 20px;
-  }
-
-  .about-text p {
-    font-size: 13px;
-  }
-
-  .tuition-content {
-    padding: 25px 20px;
-  }
-
+.header-title h1 {
+    font-size: clamp(16px, 4vw, 24px); 
 }
-
